@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Pivot | 2. 해결방안 — 시범 3거점 및 공공 사례 분석</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="gnb">
+    <div class="wrap gnb-inner">
+      <a class="brand" href="index.html">
+        <span>LOCAL PIVOT</span>
+        <span class="brand-badge">빈집 재생 의사결정</span>
+      </a>
+      <nav class="nav-links" aria-label="주요 챕터 이동">
+        <a href="index.html" class="">1. 문제인식</a>
+        <a href="solution.html" class="active">2. 해결방안</a>
+        <a href="alternatives.html" class="">3. 대안비교</a>
+        <a href="report.html" class="">4. 정책브리핑</a>
+        <a href="audit.html" class="">5. 데이터검증</a>
+      </nav>
+      <div class="gnb-status">
+        <span id="gnbRegionPill" class="region-pill">분석 대상 로딩 중...</span>
+        <span id="gnbModePill" class="mode-pill">공개 공고·가정 기반</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">CHAPTER 02 · SOLUTION &amp; BENCHMARKS (WHAT)</p>
+      <h1>시범 3거점(단양·고흥·의성) 데이터 진단 및 공공 전환비 실사례</h1>
+      <p>전국 89개 지자체 상대 백분위와 한국관광 데이터랩 12개월 시계열을 결합해 <strong>거점별 우선 검토 대안</strong>을 도출하고, 공개자료에서 확인된 <strong>계약·예산·공고 단가</strong>와 <strong>미확인 항목</strong>을 투명하게 제시합니다.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <!-- 데이터 기반 지역 유형 진단 및 대안 매칭 카드 -->
+    <div class="card card-accent" style="background:#f6faf5;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-accent">89개 마스터 + 12개월 관광 데이터 진단</span>
+          <span id="diagTypeBadge" class="badge badge-wood">—</span>
+        </div>
+        <a id="diagSimLink" href="alternatives.html" class="btn btn-primary btn-sm">추천 대안으로 시뮬레이터 열기 →</a>
+      </div>
+      <h2 id="diagRecommendedTitle" style="margin:0 0 6px;font-size:1.15rem;">—</h2>
+      <p id="diagReasonText" style="margin:0 0 6px;font-size:13.8px;color:#182f27;"></p>
+      <p id="diagSectorText" style="margin:0;font-size:12.5px;color:#4b6359;"></p>
+    </div>
+
+    <div class="card">
+      <h2>
+        <span id="pilotRegionHeading">시범 거점 12개월 관광·소비 추이</span>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-sm pilot-tab-btn active" data-code="43800">충북 단양군</button>
+          <button type="button" class="btn btn-sm pilot-tab-btn" data-code="46770">전남 고흥군</button>
+          <button type="button" class="btn btn-sm pilot-tab-btn" data-code="47730">경북 의성군</button>
+        </div>
+      </h2>
+
+      <div class="grid-4" style="margin-bottom:14px;">
+        <div class="kpi highlight">
+          <div class="kpi-label">12개월 방문 연인원 합계</div>
+          <div class="kpi-val" id="pKpiVisits">—</div>
+          <div class="kpi-sub">중복 방문 포함 (한국관광 데이터랩)</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">월평균 숙박방문자 비율</div>
+          <div class="kpi-val" id="pKpiOvernight">—</div>
+          <div class="kpi-sub" id="pKpiOvernightSub">12개월 단순평균</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">월평균 숙박일수 (12개월 단순평균)</div>
+          <div class="kpi-val" id="pKpiLodging">—</div>
+          <div class="kpi-sub">숙박 방문자 기준 (특정 시설 가동률 아님)</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">12개월 외지인 소비 합계</div>
+          <div class="kpi-val" id="pKpiSpend">—</div>
+          <div class="kpi-sub">신용카드 외지인 지출 기준 (천원×1,000)</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <span style="font-size:13px;font-weight:700;color:#3f5e4d;">시계열 지표 전환:</span>
+        <button type="button" class="btn btn-sm chart-mode-btn active" data-mode="visits">방문 연인원</button>
+        <button type="button" class="btn btn-sm chart-mode-btn" data-mode="overnight">숙박방문자 비율(%)</button>
+        <button type="button" class="btn btn-sm chart-mode-btn" data-mode="lodging">평균 숙박일수(박)</button>
+        <button type="button" class="btn btn-sm chart-mode-btn" data-mode="spend">외지인 소비액(억 원)</button>
+      </div>
+
+      <div class="grid-2">
+        <div class="chart-box"><canvas id="pilotTrendChart"></canvas></div>
+        <div class="chart-box"><canvas id="pilotIndustryChart"></canvas></div>
+      </div>
+
+      <p id="danyangLodgingNote" class="info-box" style="margin-top:14px;font-size:12.5px;"></p>
+    </div>
+
+    <div class="card">
+      <h2>
+        <span>시범 3지역 실제 전환비 및 후보 주택 공개자료 조사</span>
+        <span class="badge badge-warn">미확인 값은 0이나 계획값으로 대체하지 않음</span>
+      </h2>
+      <div class="notice">
+        공개자료에서 확인된 의성 청춘어람 건축·통신 계약 2건 소계는 <strong>2,603,905,000원</strong>이며, 준공 정산액 및 실제 총전환비가 아닙니다. 세 지역의 확정 후보 주택 동수(개보수 가능 + 소유자 동의 동시 충족)는 공개자료에서 확인되지 않았습니다.
+      </div>
+      <h3>1) 시설별 전환비: 계약액·투찰액·예산·정산 구분</h3>
+      <div class="table-wrap" style="margin-bottom:18px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">시설 / 지역</th>
+              <th style="width:32%;">계약·예산·공고 현황</th>
+              <th style="width:25%;">공사 범위·면적</th>
+              <th style="width:25%;">정산·집기·부동산 확인 상태</th>
+            </tr>
+          </thead>
+          <tbody id="conversionCostBody"></tbody>
+        </table>
+      </div>
+
+      <h3>2) 지역별 후보 주택 수: 등급·개보수·동의·협약·선정</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:14%;">지역</th>
+              <th style="width:32%;">기준일·등급 집계</th>
+              <th style="width:27%;">개보수 가능 및 소유자 동의</th>
+              <th style="width:27%;">실제 협약·최종 선정</th>
+            </tr>
+          </thead>
+          <tbody id="candidateHousingBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card card-wood">
+      <h2>
+        <span>전국 지자체 공공 사례 벤치마크 (유형·비용 성격별 구분 · 8건)</span>
+        <span class="badge badge-wood">공고문·시행계획·의회 회의록 원문 근거</span>
+      </h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:15%;">시나리오 / 유형</th>
+              <th style="width:21%;">사업명 및 출처</th>
+              <th style="width:22%;">확인된 예산·단가</th>
+              <th style="width:20%;">사업 규모</th>
+              <th style="width:22%;">현장 제약 및 시사점</th>
+            </tr>
+          </thead>
+          <tbody id="benchmarkBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="chapter-footer">
+      <a href="index.html" class="btn">← 이전: 1. 문제인식</a>
+      <a href="alternatives.html" class="btn btn-primary">다음: 3. 대안비교 (공정 단가 시뮬레이터 · 역산 툴) →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
+      <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
+      <p>※ 본 서비스의 시뮬레이션 수치는 사전검토용 가정 기반 추정치이며, 실제 사업 효과를 보장하지 않습니다.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pilot.js"></script>
+</body>
+</html>

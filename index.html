@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Pivot | 1. 문제인식 — 전국 89개 인구감소지역 진단</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="gnb">
+    <div class="wrap gnb-inner">
+      <a class="brand" href="index.html">
+        <span>LOCAL PIVOT</span>
+        <span class="brand-badge">빈집 재생 의사결정</span>
+      </a>
+      <nav class="nav-links" aria-label="주요 챕터 이동">
+        <a href="index.html" class="active">1. 문제인식</a>
+        <a href="solution.html" class="">2. 해결방안</a>
+        <a href="alternatives.html" class="">3. 대안비교</a>
+        <a href="report.html" class="">4. 정책브리핑</a>
+        <a href="audit.html" class="">5. 데이터검증</a>
+      </nav>
+      <div class="gnb-status">
+        <span id="gnbRegionPill" class="region-pill">분석 대상 로딩 중...</span>
+        <span id="gnbModePill" class="mode-pill">공개 공고·가정 기반</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">CHAPTER 01 · PROBLEM RECOGNITION (WHY)</p>
+      <h1>전국 89개 인구감소지역의 빈집·체류인구 구조 진단</h1>
+      <p>인구감소지역의 미거주주택은 누적되고 있으나, 지자체 정책은 <strong>단순 철거(인구 유입 없음)</strong>와 <strong>대규모 공공 신축(고비용·부지 확보 난항)</strong> 양극단에 머물러 있습니다. 전국 89개 지자체 데이터와 3단 사업비 스펙트럼으로 문제의 규모와 정책 공백을 확인합니다.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="grid-4" style="margin-bottom:16px;">
+      <div class="kpi highlight">
+        <div class="kpi-label">89개 지역 미거주주택 합계 (2025)</div>
+        <div class="kpi-val" id="kpiTotalUnocc">—</div>
+        <div class="kpi-sub">통계청 주택총조사 기준 (전체 2,290,901호)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">89개 지역 미거주율</div>
+        <div class="kpi-val" id="kpiAvgRate">—</div>
+        <div class="kpi-sub" id="kpiAvgRateSub">전체 주택 가중평균</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">평균 소멸위험지수 (2024.03)</div>
+        <div class="kpi-val" id="kpiAvgExt">—</div>
+        <div class="kpi-sub">0.2 미만 소멸고위험 단계</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">소멸고위험 지역 (0.2 미만)</div>
+        <div class="kpi-val" id="kpiHighRisk">—</div>
+        <div class="kpi-sub">한국고용정보원 기준</div>
+      </div>
+    </div>
+
+    <div class="card card-accent">
+      <h2>
+        <span>전국 89개 인구감소지역 단계구분도</span>
+        <span class="badge badge-accent">지자체 클릭 시 상세 현황 및 유형 진단 즉시 반영</span>
+      </h2>
+      <div class="toolbar">
+        <label class="field">
+          지표 선택
+          <select id="metricSelect">
+            <option value="unoccupied_rate">미거주주택 비율 (%)</option>
+            <option value="extinction_index">소멸위험지수</option>
+            <option value="stay_ratio">체류인구 배수 (등록인구 대비)</option>
+            <option value="spend_per_person">1인당 월간 카드소비액 (원)</option>
+          </select>
+        </label>
+        <label class="field">
+          지자체 검색
+          <select id="regionSelect"></select>
+        </label>
+        <div class="field">
+          <span>생활인구 기준 시점</span>
+          <div style="display:flex;gap:6px;">
+            <button type="button" class="btn btn-sm month-btn active" data-month="avg">5~6월 평균</button>
+            <button type="button" class="btn btn-sm month-btn" data-month="202605">2026.05</button>
+            <button type="button" class="btn btn-sm month-btn" data-month="202606">2026.06</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>시범 거점 바로가기</span>
+          <div style="display:flex;gap:6px;">
+            <button type="button" class="btn btn-sm pilot-jump-btn" data-code="43800">단양군</button>
+            <button type="button" class="btn btn-sm pilot-jump-btn" data-code="46770">고흥군</button>
+            <button type="button" class="btn btn-sm pilot-jump-btn" data-code="47730">의성군</button>
+          </div>
+        </div>
+      </div>
+      <p id="mapStatus" style="margin:0 0 8px;font-size:13px;color:#b91c1c;"></p>
+
+      <div class="grid-map">
+        <div id="map" aria-label="전국 89개 인구감소지역 지도"></div>
+        <div>
+          <div class="card" style="margin-bottom:12px;background:#f9fbf8;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+              <h3 id="selRegionName" style="margin:0;font-size:1.2rem;color:#182f27;">충청북도 단양군</h3>
+              <span id="selExtClass" class="badge badge-warn">—</span>
+            </div>
+            <div class="grid-2" style="gap:10px;">
+              <div class="kpi">
+                <div class="kpi-label">소멸위험지수</div>
+                <div class="kpi-val" id="selExtVal">—</div>
+                <div class="kpi-sub">2024.03 기준</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">미거주주택 (2025)</div>
+                <div class="kpi-val" id="selUnocc" style="font-size:1.12rem;">—</div>
+                <div class="kpi-sub" id="selTotalHousing">—</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">체류인구</div>
+                <div class="kpi-val" id="selStayPop" style="font-size:1.18rem;">—</div>
+                <div class="kpi-sub" id="selStayRatio">—</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">1인당 월간 카드소비액</div>
+                <div class="kpi-val" id="selSpend" style="font-size:1.18rem;">—</div>
+                <div class="kpi-sub" id="selStayHours">—</div>
+              </div>
+            </div>
+            <p id="pilotBadgeNote" class="info-box" style="margin:12px 0 0;font-size:12.5px;"></p>
+          </div>
+
+          <div class="card card-wood" style="margin-bottom:0;">
+            <h3>정책 공백: 3단 사업비 스펙트럼 및 공급 제약</h3>
+            <div class="spectrum-grid">
+              <div class="spectrum-item">
+                <div style="font-size:11.5px;font-weight:800;color:#4b6359;">① 단순 철거 보조</div>
+                <div style="font-size:14px;font-weight:800;margin:2px 0;">동당 150만~300만 원</div>
+                <div style="font-size:12px;color:#4b6359;">의성(150~250만)·고흥(최대 300만). 환경 정비는 되나 인구 유입 없음</div>
+              </div>
+              <div class="spectrum-item mid">
+                <div style="font-size:11.5px;font-weight:800;color:#216049;">② 빈집 리모델링 (중간 대안)</div>
+                <div style="font-size:14px;font-weight:800;color:#216049;margin:2px 0;">동당 6,000만~8,000만 원</div>
+                <div style="font-size:12px;color:#182f27;">단양 희망둥지·고흥 새뜰하우스 공고 기준. 단, 연 1동 소규모 집행</div>
+              </div>
+              <div class="spectrum-item">
+                <div style="font-size:11.5px;font-weight:800;color:#8b6f4e;">③ 공공임대 신축</div>
+                <div style="font-size:14px;font-weight:800;margin:2px 0;">호당 약 3.85억 원</div>
+                <div style="font-size:12px;color:#4b6359;">군위군 20세대 77억 원. 부지 중복·지가 상승으로 대체부지 확보 난항</div>
+              </div>
+            </div>
+            <p style="margin:10px 0 0;font-size:12.5px;color:#4b6359;">
+              ※ 통계청 미거주주택에는 일시 공실·별장이 포함되며, 실제 빈집 리모델링은 1~2등급·소유자 동의(4~7년 무상임대)·권리관계(미등기·근저당 제외) 충족 물량으로 제한됩니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter-footer">
+      <span class="badge">Chapter 1 / 5 · 문제인식 (Why)</span>
+      <a href="solution.html" class="btn btn-primary">다음: 2. 해결방안 (시범 거점 · 유형 진단 · 공공 사례) →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
+      <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
+      <p>※ 본 서비스의 시뮬레이션 수치는 사전검토용 가정 기반 추정치이며, 실제 사업 효과를 보장하지 않습니다.</p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

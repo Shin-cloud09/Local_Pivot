@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Pivot | 3. 대안비교 — 빈집 재생 시뮬레이터</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="gnb">
+    <div class="wrap gnb-inner">
+      <a class="brand" href="index.html">
+        <span>LOCAL PIVOT</span>
+        <span class="brand-badge">빈집 재생 의사결정</span>
+      </a>
+      <nav class="nav-links" aria-label="주요 챕터 이동">
+        <a href="index.html" class="">1. 문제인식</a>
+        <a href="solution.html" class="">2. 해결방안</a>
+        <a href="alternatives.html" class="active">3. 대안비교</a>
+        <a href="report.html" class="">4. 정책브리핑</a>
+        <a href="audit.html" class="">5. 데이터검증</a>
+      </nav>
+      <div class="gnb-status">
+        <span id="gnbRegionPill" class="region-pill">분석 대상 로딩 중...</span>
+        <span id="gnbModePill" class="mode-pill">공개 공고·가정 기반</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">CHAPTER 03 · ALTERNATIVES &amp; SIMULATION (HOW)</p>
+      <h1>3대 빈집 재생 대안 비교 · 목표 역산 시뮬레이터</h1>
+      <p>대안별(A·B·C) <strong>개별 초기 전환비와 연간 운영비</strong>를 분리 설정해 편향 없이 비교하고, <strong>목표 달성 최소 조건(가동률·호수) 역산</strong>과 <strong>지자체 내부 CSV 로컬 업로드</strong>를 지원합니다.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <!-- 공무원용 내부 데이터 로컬 업로드 툴 -->
+    <div class="card card-wood">
+      <h2>
+        <span>지자체 담당자용 내부 데이터 업로드 툴 (100% 브라우저 로컬 처리)</span>
+        <span id="simModeBadge" class="badge badge-accent">공개 공고·가정 기반 사전검토</span>
+      </h2>
+      <div id="uploadStatusBox" class="info-box" style="margin-bottom:12px;"></div>
+      <div class="grid-2" style="align-items:center;">
+        <div id="csvDropzone" class="dropzone" tabindex="0" role="button" aria-label="CSV 파일 업로드 영역">
+          <input type="file" id="csvFileInput" accept=".csv" hidden />
+          <div style="font-weight:800;color:#216049;margin-bottom:4px;">CSV 파일을 여기에 끌어다 놓거나 클릭하여 선택하세요</div>
+          <div style="font-size:12.5px;color:#4b6359;">외부 서버로 전송되지 않으며, 따옴표·쉼표 포함 CSV도 안전하게 로컬 검산합니다.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button type="button" id="downloadTemplateBtn" class="btn btn-wood btn-sm">표준 CSV 템플릿 다운로드</button>
+            <button type="button" id="resetCustomBtn" class="btn btn-sm" disabled>공개자료 기본값으로 초기화</button>
+            <label id="capCandidateWrap" style="display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#8b6f4e;cursor:pointer;">
+              <input type="checkbox" id="capCandidateCheck" />
+              확정 후보주택 동수를 전환 상한(Cap)으로 제한
+            </label>
+          </div>
+          <div style="font-size:12.5px;color:#4b6359;">
+            필수 열: <code>지역명</code>, <code>확정_후보주택_동수</code>, <code>호당_실제전환비_만원</code>, <code>투입예산_억원</code>, <code>실측_가동률_퍼센트</code>
+          </div>
+        </div>
+      </div>
+      <div id="uploadErrorBox" class="notice-danger" style="display:none;margin-top:10px;"></div>
+    </div>
+
+    <!-- 시뮬레이터 기본 조건 + 대안별 개별 단가·운영비 -->
+    <div class="card card-accent">
+      <h2>
+        <span>1) 대상지 · 규모 · 1회 방문당 소비액 설정</span>
+        <button type="button" id="resetParamsBtn" class="btn btn-sm">예시 가정값 초기화</button>
+      </h2>
+
+      <p id="simDiagBanner" class="info-box" style="margin:0 0 12px;font-size:13px;"></p>
+
+      <div class="grid-4" style="margin-bottom:12px;">
+        <label class="field">
+          대상 지자체 (89개)
+          <select id="simRegionSelect"></select>
+        </label>
+        <label class="field">
+          생활인구 참고 기준 시점
+          <select id="simMonthSelect">
+            <option value="avg">2026년 5~6월 평균</option>
+            <option value="202605">2026년 5월</option>
+            <option value="202606">2026년 6월</option>
+          </select>
+        </label>
+        <label class="field">
+          중점 검토 대안 (민감도·보고서 대상)
+          <select id="scenarioSelect">
+            <option value="A">A. 체류형 워케이션</option>
+            <option value="B">B. 청년 로컬 창업</option>
+            <option value="C">C. 귀농·귀촌 정착</option>
+          </select>
+        </label>
+        <label class="field">
+          규모 산정 방식
+          <select id="costMode">
+            <option value="units">전환 호수 직접 입력</option>
+            <option value="budget">투입 예산 기준 대안별 자동 산출</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid-3" style="align-items:end;margin-bottom:14px;">
+        <label class="field" id="unitsWrap">
+          전환 호수 (호, 1 이상 정수)
+          <input type="number" id="inputUnits" min="1" max="500" step="1" value="10" />
+        </label>
+        <label class="field" id="budgetWrap" style="display:none;">
+          투입 예산 (만 원)
+          <input type="number" id="budget" min="0" step="1000" value="80000" />
+        </label>
+        <label class="field">
+          1회 방문당 추정 소비액 (원, 예시 가정)
+          <input type="number" id="perVisitSpend" min="0" step="5000" value="50000" />
+        </label>
+        <label class="field">
+          <span>기준 가동률: <strong id="occRateVal" style="color:#216049;">55%</strong></span>
+          <input type="range" id="occRate" min="15" max="90" step="5" value="55" />
+        </label>
+      </div>
+
+      <h3>2) 대안별 개별 초기 전환비 및 연간 운영비 설정 (편향 방지용 분리 입력)</h3>
+      <div class="grid-3" style="margin-bottom:10px;">
+        <div class="kpi">
+          <div class="kpi-label">A. 체류형 워케이션 (예시 가정값)</div>
+          <div class="grid-2" style="gap:8px;margin-top:6px;">
+            <label class="field">초기비(만 원/호)<input type="number" id="initCostA" min="100" step="500" value="8000" /></label>
+            <label class="field">연운영비(만 원/호)<input type="number" id="opCostA" min="0" step="100" value="1200" /></label>
+          </div>
+          <div class="kpi-sub">개별 빈집 공고 단가 미확정 · 거점 사례 10억~55억 참고</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">B. 청년 로컬 창업 (예시 가정값)</div>
+          <div class="grid-2" style="gap:8px;margin-top:6px;">
+            <label class="field">초기비(만 원/호)<input type="number" id="initCostB" min="100" step="500" value="9000" /></label>
+            <label class="field">연운영비(만 원/호)<input type="number" id="opCostB" min="0" step="100" value="1500" /></label>
+          </div>
+          <div class="kpi-sub">함양 빈집 1동 매입·시설 1.8억+운영 1억 · 영월 47.89억 참고</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">C. 귀농·귀촌 정착 (공고 한도 참고)</div>
+          <div class="grid-2" style="gap:8px;margin-top:6px;">
+            <label class="field">초기비(만 원/호)<input type="number" id="initCostC" min="100" step="500" value="6000" /></label>
+            <label class="field">연운영비(만 원/호)<input type="number" id="opCostC" min="0" step="100" value="300" /></label>
+          </div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;">
+            <button type="button" class="btn btn-sm preset-c-btn" data-cost="6000">단양·고흥 하한 6,000만</button>
+            <button type="button" class="btn btn-sm preset-c-btn" data-cost="8000">고흥 새뜰 상한 8,000만</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 블랙박스 제거: 모델 가정 계수 직접 개방 아코디언 -->
+      <details class="panel-details">
+        <summary>세부 모델 가정 계수 직접 조정 — 현재 선택: <span id="activeParamLabel">A. 체류형 워케이션</span> (실증 미검증 예시값)</summary>
+        <div class="grid-3" style="margin-top:10px;">
+          <label class="field">
+            호당 월 방문 계수 (인회/호·월)
+            <input type="number" id="paramMonthlyVisits" min="0" step="1" value="16" />
+          </label>
+          <label class="field">
+            호당 신규 정착 계수 (명/호, 가동률 100% 기준)
+            <input type="number" id="paramResidentGain" min="0" step="0.1" value="0.0" />
+          </label>
+          <label class="field">
+            소비 승수 (기본 1.00배 = 승수 미적용)
+            <input type="number" id="paramSpendMult" min="0.5" max="2.0" step="0.05" value="1.00" />
+          </label>
+        </div>
+      </details>
+
+      <div id="simErrorBox" class="notice-danger" style="display:none;"></div>
+      <p id="costNote" class="info-box" style="margin:10px 0 0;font-size:13px;"></p>
+    </div>
+
+    <!-- 핵심 KPI 4종 -->
+    <div class="grid-4" style="margin-bottom:16px;">
+      <div class="kpi highlight">
+        <div class="kpi-label">전환 규모 및 물리적 가동일수</div>
+        <div class="kpi-val" id="resUnits">—</div>
+        <div class="kpi-sub" id="resUnitsSub">—</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">연간 방문 연인원 (기준)</div>
+        <div class="kpi-val" id="resVisits">—</div>
+        <div class="kpi-sub" id="resVisitsSub">—</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">신규 정착 인원 (기준)</div>
+        <div class="kpi-val" id="resSettlers">—</div>
+        <div class="kpi-sub" id="resSettlersSub">—</div>
+      </div>
+      <div class="kpi highlight">
+        <div class="kpi-label">연간 추가 소비 추정 (기준)</div>
+        <div class="kpi-val" id="resSpend">—</div>
+        <div class="kpi-sub" id="resEfficiency">—</div>
+      </div>
+    </div>
+
+    <!-- 3대 대안 병렬 비교표 -->
+    <div class="card">
+      <h2>
+        <span>동일 조건 3대 대안(A · B · C) 공정 병렬 비교 (대안별 개별 단가·운영비 반영)</span>
+        <span class="badge badge-warn">사전검토용 예시 가정 기반 추정치 · 실제 효과 보장 아님</span>
+      </h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>대안 유형 (적용 단가 · 계수)</th>
+              <th class="num">전환 호수</th>
+              <th class="num">초기비 (연운영비)</th>
+              <th class="num">연간 방문 (인회)</th>
+              <th class="num">신규 정착 (명)</th>
+              <th class="num">연간 추가 소비</th>
+              <th class="num">초기비 대비 소비</th>
+            </tr>
+          </thead>
+          <tbody id="compareAllBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 가동률 ±10%p 민감도 분석 -->
+    <div class="card">
+      <h2>선택 대안 가동률 민감도 분석 (보수 -10%p · 기준 · 낙관 +10%p)</h2>
+      <div class="grid-2" style="align-items:center;">
+        <div class="chart-box-sm"><canvas id="simChart"></canvas></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>시나리오</th>
+                <th class="num">가동률</th>
+                <th class="num">가동 객실일수</th>
+                <th class="num">연간 방문(인회)</th>
+                <th class="num">신규 정착(명)</th>
+                <th class="num">추가 소비(억 원)</th>
+              </tr>
+            </thead>
+            <tbody id="sensitivityBody"></tbody>
+          </table>
+          <p style="font-size:12px;color:#4b6359;margin:8px 0 0;">
+            ※ 방문 인회(중복 포함)와 신규 정착 인원은 측정 단위가 달라 합산하지 않습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공무원 예산 심의용 목표 달성 역산(Goal-Seek) 카드 -->
+    <div class="card card-wood">
+      <h2>
+        <span>목표 달성 최소 조건 역산 (Goal-Seek · 예산 심의 리스크 점검용)</span>
+        <span class="badge badge-wood">실현 가능성 사전 검증</span>
+      </h2>
+      <div class="toolbar">
+        <label class="field">
+          목표 지표 유형
+          <select id="goalType">
+            <option value="visits">목표 연간 방문 연인원 (인회)</option>
+            <option value="settlers">목표 신규 정착 인원 (명)</option>
+          </select>
+        </label>
+        <label class="field">
+          달성 목표치
+          <input type="number" id="goalTarget" min="1" step="10" value="1200" />
+        </label>
+      </div>
+      <div id="goalSeekResult" class="info-box"></div>
+    </div>
+
+    <div class="chapter-footer">
+      <a href="solution.html" class="btn">← 이전: 2. 해결방안</a>
+      <a href="report.html" class="btn btn-primary">다음: 4. 정책브리핑 · A4 보고서 출력 →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
+      <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
+      <p>※ 본 서비스의 시뮬레이션 수치는 사전검토용 가정 기반 추정치이며, 실제 사업 효과를 보장하지 않습니다.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/uploader.js"></script>
+  <script src="js/simulator.js"></script>
+</body>
+</html>
