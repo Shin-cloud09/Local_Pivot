@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Pivot | 5. 데이터 검증 — 원천 데이터 및 계산식 공개</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=v4" />
 </head>
 <body>
   <header class="gnb">
@@ -23,6 +23,7 @@
       <div class="gnb-status">
         <span id="gnbRegionPill" class="region-pill">지자체 로딩 중...</span>
         <span id="gnbModePill" class="mode-pill">공개자료·가정 기준</span>
+        <button type="button" id="openGuideBtn" class="guide-open-btn">사용 가이드</button>
       </div>
     </div>
   </header>
@@ -33,22 +34,22 @@
         <p class="eyebrow">STEP 5 · 데이터 검증</p>
         <h1>원천 데이터 전수 공개 · 실시간 검산 · 계산식 투명화</h1>
       </div>
-      <span class="unit-chip">모든 금액: 만 원 · 방문: 회</span>
+      <span class="unit-chip">금액: 만 원 · 방문: 회</span>
     </div>
   </section>
 
   <main class="wrap">
     <div class="card card-accent">
       <h2>
-        <span>1) 실시간 데이터 무결성 자동 검산</span>
-        <span class="badge badge-accent">페이지 로드 시 JSON 구조·결측 검산</span>
+        <span>1) 실시간 구조·정합성 자동 검산 (실제 실행 범위 투명 표기)</span>
+        <span id="auditRunTime" class="badge badge-accent">검산 실행 중...</span>
       </h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>검증 대상 파일</th>
-              <th>기대 기준</th>
+              <th>실행된 검사 방법</th>
               <th>실제 검산 결과</th>
               <th>검증 상태</th>
             </tr>
@@ -80,7 +81,7 @@
             </tr>
             <tr>
               <td><code>data/pilot_3regions_monthly.json</code></td>
-              <td>시범 3거점(단양·고흥·의성) 12개월 방문·숙박·업종별 소비(36행, 원천 천원 → 화면 만 원 환산)</td>
+              <td>시범 3거점(단양·고흥·의성) 12개월 방문·숙박·업종별 소비(36행)</td>
               <td>한국관광 데이터랩 가공본 (2025.11~2026.10)</td>
               <td><a href="data/pilot_3regions_monthly.json" download class="btn btn-sm">JSON 다운로드</a></td>
             </tr>
@@ -104,25 +105,25 @@
     <div class="card">
       <h2>3) 시뮬레이터 계산식 및 가정 계수 전수 공개</h2>
       <div class="info-box" style="margin-bottom:14px;font-size:13.8px;">
-        <strong>핵심 계산식 (금액 단위: 만 원 · 방문 단위: 회):</strong><br>
-        • 예산 기준 전환 호수 = <code>floor(투입 예산[만 원] ÷ 대안별 호당 초기 전환비[만 원])</code><br>
-        • 3년 누적 총사업비 = <code>초기 전환비 + (연간 운영비 × 3년)</code><br>
-        • 연간 가동 객실일수 = <code>round(전환 호수 × 365일 × 기준 가동률)</code><br>
+        <strong>핵심 계산식 (전국 공통 가정 · 금액: 만 원 · 방문: 회 · 정착: 명):</strong><br>
+        • 동일 예산 전환 호수 = <code>floor(투입 예산[만 원] ÷ 대안별 호당 초기비[만 원])</code><br>
+        • 5년 단순 누적 재정부담 = <code>초기 전환비 + (연간 운영비 × 5년)</code> (물가·할인율 미반영)<br>
+        • 시설 유형별 가동일수 = <code>round(전환 호수 × 365일 × 기준 가동률)</code><br>
         • 연간 예상 방문(회, 중복 포함) = <code>round(전환 호수 × 호당 월 방문 횟수 × 12 × 가동률)</code><br>
         • 신규 정착 인원(명) = <code>round(전환 호수 × 호당 정착 계수 × 가동률)</code> (방문 횟수와 비합산)<br>
-        • 연간 추가 소비 추정(만 원) = <code>round(연간 방문[회] × 1회 방문당 추정 소비액[만 원] × 소비 승수)</code>
+        • 방문 관련 소비 추정액(만 원) = <code>round(연간 방문[회] × 1회 방문당 추정 소비액[만 원] × 소비 승수)</code> (순증 소비·ROI 아님)
       </div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>대안 유형</th>
-              <th class="num">초기 전환비(기본)</th>
+              <th class="num">초기비(기본)</th>
               <th class="num">연 운영비(기본)</th>
               <th class="num">월 방문 횟수</th>
               <th class="num">정착 계수</th>
               <th class="num">소비 승수</th>
-              <th>사후 성과관리 지표</th>
+              <th>가동 단위 · 성과관리 지표</th>
             </tr>
           </thead>
           <tbody id="paramTableBody"></tbody>
@@ -130,7 +131,7 @@
       </div>
     </div>
 
-    <div class="card card-wood">
+    <div class="card card-earth">
       <h2>
         <span>4) 품질 점검 후 계산에서 제외한 데이터 목록 (오류·과장 방지)</span>
         <span class="badge badge-warn">LocalPivot_4CSV 통합 점검표 근거</span>
@@ -160,10 +161,10 @@
     <div class="wrap">
       <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
       <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
-      <p>※ 표기 금액은 모두 만 원 단위로 통일하였으며, 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
+      <p>※ 외부 지도 API·CDN 없이 작동하며, 모든 금액은 만 원 단위입니다. 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
     </div>
   </footer>
-  <script src="js/common.js"></script>
-  <script src="js/audit.js"></script>
+  <script src="js/common.js?v=v4"></script>
+  <script src="js/audit.js?v=v4"></script>
 </body>
 </html>

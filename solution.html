@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Pivot | 2. 거점·사례 — 시범 3지역 및 공공 사례</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=v4" />
 </head>
 <body>
   <header class="gnb">
@@ -23,6 +23,7 @@
       <div class="gnb-status">
         <span id="gnbRegionPill" class="region-pill">지자체 로딩 중...</span>
         <span id="gnbModePill" class="mode-pill">공개자료·가정 기준</span>
+        <button type="button" id="openGuideBtn" class="guide-open-btn">사용 가이드</button>
       </div>
     </div>
   </header>
@@ -33,26 +34,24 @@
         <p class="eyebrow">STEP 2 · 거점 · 사례 분석</p>
         <h1>시범 3거점(단양·고흥·의성) 데이터 진단 및 공공 사례</h1>
       </div>
-      <span class="unit-chip">금액 단위: 만 원 · 방문: 회</span>
+      <span class="unit-chip">금액: 만 원 · 방문: 회</span>
     </div>
   </section>
 
   <main class="wrap">
-    <!-- 데이터 기반 지역 유형 진단 카드 -->
-    <div class="card card-accent" style="background:#f6faf6;">
+    <div class="card card-accent" style="background:#f6f8f0;">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-          <span class="badge badge-accent">데이터 기반 우선 검토 대안 진단</span>
-          <span id="diagTypeBadge" class="badge badge-wood">—</span>
+          <span class="badge badge-accent">데이터 기반 우선 검토 후보 진단</span>
+          <span id="diagTypeBadge" class="badge badge-earth">—</span>
         </div>
-        <a id="diagSimLink" href="alternatives.html" class="btn btn-primary btn-sm">추천 대안 시뮬레이션 →</a>
+        <a id="diagSimLink" href="alternatives.html" class="btn btn-primary btn-sm">선택 거점으로 시뮬레이션 →</a>
       </div>
-      <h2 id="diagRecommendedTitle" style="margin:0 0 6px;font-size:1.18rem;">—</h2>
-      <p id="diagReasonText" style="margin:0 0 6px;font-size:14px;color:#162922;"></p>
-      <p id="diagSectorText" style="margin:0;font-size:12.8px;color:#4b6359;"></p>
+      <h2 id="diagRecommendedTitle" style="margin:0 0 6px;font-size:1.16rem;">—</h2>
+      <p id="diagReasonText" style="margin:0 0 6px;font-size:14px;color:#252c1b;"></p>
+      <p id="diagSectorText" style="margin:0;font-size:12.6px;color:#5c634d;"></p>
     </div>
 
-    <!-- 시범 3거점 12개월 차트 -->
     <div class="card">
       <h2>
         <span id="pilotRegionHeading">시범 거점 12개월 관광·소비 추이</span>
@@ -65,29 +64,29 @@
 
       <div class="grid-4" style="margin-bottom:16px;">
         <div class="kpi highlight">
-          <div class="kpi-label">12개월 총 방문 횟수</div>
+          <div class="kpi-label"><span>12개월 총 방문 횟수</span> <span class="tag-cert tag-official">[공식]</span></div>
           <div class="kpi-val" id="pKpiVisits">—</div>
           <div class="kpi-sub">중복 방문 포함 연인원 기준</div>
         </div>
         <div class="kpi">
-          <div class="kpi-label">월평균 숙박방문자 비율</div>
+          <div class="kpi-label"><span>월평균 숙박방문자 비율</span> <span class="tag-cert tag-official">[공식]</span></div>
           <div class="kpi-val" id="pKpiOvernight">—</div>
           <div class="kpi-sub" id="pKpiOvernightSub">12개월 단순평균</div>
         </div>
         <div class="kpi">
-          <div class="kpi-label">월평균 숙박일수</div>
+          <div class="kpi-label"><span>월평균 숙박일수</span> <span class="tag-cert tag-official">[공식]</span></div>
           <div class="kpi-val" id="pKpiLodging">—</div>
           <div class="kpi-sub">12개월 단순평균 (숙박객 기준)</div>
         </div>
         <div class="kpi">
-          <div class="kpi-label">12개월 외지인 소비 합계</div>
+          <div class="kpi-label"><span>12개월 외지인 소비 합계</span> <span class="tag-cert tag-official">[공식]</span></div>
           <div class="kpi-val" id="pKpiSpend">—</div>
           <div class="kpi-sub">신용카드 외지인 지출 (만 원)</div>
         </div>
       </div>
 
       <div class="toolbar">
-        <span style="font-size:13px;font-weight:700;color:#355446;">월별 차트 항목:</span>
+        <span style="font-size:13px;font-weight:700;color:#556b2f;">월별 차트 항목:</span>
         <button type="button" class="btn btn-sm chart-mode-btn active" data-mode="visits">방문 횟수(회)</button>
         <button type="button" class="btn btn-sm chart-mode-btn" data-mode="overnight">숙박비율(%)</button>
         <button type="button" class="btn btn-sm chart-mode-btn" data-mode="lodging">숙박일수(박)</button>
@@ -95,14 +94,13 @@
       </div>
 
       <div class="grid-2">
-        <div class="chart-box"><canvas id="pilotTrendChart"></canvas></div>
-        <div class="chart-box"><canvas id="pilotIndustryChart"></canvas></div>
+        <div id="pilotTrendChart" class="chart-box"></div>
+        <div id="pilotIndustryChart" class="chart-box"></div>
       </div>
 
       <p id="danyangLodgingNote" class="info-box" style="margin-top:16px;font-size:12.8px;"></p>
     </div>
 
-    <!-- 실제 전환비 및 후보 주택 카드형 요약 -->
     <div class="card">
       <h2>
         <span>실제 전환비 및 후보 주택 조사 현황</span>
@@ -114,11 +112,10 @@
       <div id="pilotFactCards"></div>
     </div>
 
-    <!-- 전국 공공 사례 벤치마크: 필터형 카드 그리드 -->
-    <div class="card card-wood">
+    <div class="card card-earth">
       <h2>
         <span>전국 지자체 공공 사례 벤치마크 (8건)</span>
-        <span class="badge badge-wood">공고문·시행계획·의회 회의록 원문 근거</span>
+        <span class="badge badge-earth">공고문·시행계획·의회 회의록 원문 근거</span>
       </h2>
       <div class="toolbar">
         <button type="button" class="btn btn-sm bench-filter-btn active" data-cat="ALL">전체 (8)</button>
@@ -140,11 +137,11 @@
     <div class="wrap">
       <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
       <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
-      <p>※ 표기 금액은 모두 만 원 단위로 통일하였으며, 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
+      <p>※ 외부 지도 API·CDN 없이 작동하며, 모든 금액은 만 원 단위입니다. 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/pilot.js"></script>
+  <script src="js/common.js?v=v4"></script>
+  <script src="js/charts.js?v=v4"></script>
+  <script src="js/pilot.js?v=v4"></script>
 </body>
 </html>

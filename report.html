@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Local Pivot | 4. 보고서 출력 — A4 사전검토 보고서</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Local Pivot | 4. 보고서 출력 — A4·HWP 사전검토 보고서</title>
+  <link rel="stylesheet" href="css/style.css?v=v4" />
 </head>
 <body>
   <header class="gnb">
@@ -23,6 +23,7 @@
       <div class="gnb-status">
         <span id="gnbRegionPill" class="region-pill">지자체 로딩 중...</span>
         <span id="gnbModePill" class="mode-pill">공개자료·가정 기준</span>
+        <button type="button" id="openGuideBtn" class="guide-open-btn">사용 가이드</button>
       </div>
     </div>
   </header>
@@ -31,9 +32,9 @@
     <div class="wrap hero-row">
       <div>
         <p class="eyebrow">STEP 4 · 보고서 출력</p>
-        <h1>정책 의사결정 브리핑 및 A4 사전검토 보고서</h1>
+        <h1>정책 의사결정 브리핑 및 A4·HWP 사전검토 보고서</h1>
       </div>
-      <span class="unit-chip">결재란 포함 인쇄 · 금액: 만 원</span>
+      <span class="unit-chip">결재란 포함 인쇄 · HWP 표 복사</span>
     </div>
   </section>
 
@@ -42,38 +43,39 @@
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
         <div id="briefHeaderMeta" style="font-size:14px;">브리핑 로딩 중...</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" id="copyHwpBtn" class="btn btn-earth btn-sm">한글(HWP) 표 복사</button>
           <button type="button" id="copyBriefBtn" class="btn btn-sm">본문 텍스트 복사</button>
-          <button type="button" id="exportCsvBtn" class="btn btn-sm">효과 범위 CSV 저장</button>
-          <button type="button" id="saveReportBtn" class="btn btn-wood btn-sm">보고서 HTML 저장</button>
-          <button type="button" id="printReportBtn" class="btn btn-primary btn-sm">A4 보고서 인쇄 / PDF</button>
+          <button type="button" id="exportCsvBtn" class="btn btn-sm">CSV 저장</button>
+          <button type="button" id="saveReportBtn" class="btn btn-sm">HTML 저장</button>
+          <button type="button" id="printReportBtn" class="btn btn-primary btn-sm">A4 1장 인쇄 / PDF</button>
         </div>
       </div>
-      <p id="actionStatus" style="margin:8px 0 0;font-size:12.5px;color:#1f5c45;font-weight:700;"></p>
+      <p id="actionStatus" style="margin:8px 0 0;font-size:12.5px;color:#556b2f;font-weight:700;"></p>
     </div>
 
     <div id="briefingContainer">
       <div class="card">
-        <h3>01. 대상지 현황 및 데이터 진단</h3>
+        <h3>01. 대상지 현황 및 데이터 진단 <span class="tag-cert tag-official">[공식]</span></h3>
         <p id="sec01Text" style="margin:0;font-size:14.5px;"></p>
       </div>
 
       <div class="card">
-        <h3>02. 사업 개요 및 소요예산 검토 (단위: 만 원)</h3>
+        <h3>02. 사업 개요 및 5년 재정부담 검토 (단위: 만 원) <span class="tag-cert tag-calc">[산출]</span></h3>
         <p id="sec02Text" style="margin:0;font-size:14.5px;"></p>
       </div>
 
       <div class="card">
-        <h3>03. 가동률별 효과 범위 (보수 · 기준 · 낙관)</h3>
+        <h3>03. 가동률별 효과 범위 (보수 · 기준 · 낙관) <span class="tag-cert tag-assumed">[가정]</span></h3>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
                 <th>구분</th>
                 <th class="num">가동률</th>
-                <th class="num">가동 객실일수</th>
+                <th class="num" id="briefCapHeader">연간 운영일수</th>
                 <th class="num">연간 방문(회)</th>
                 <th class="num">신규 정착(명)</th>
-                <th class="num">추가 소비 추정</th>
+                <th class="num">방문 관련 소비 추정</th>
               </tr>
             </thead>
             <tbody id="briefSensBody"></tbody>
@@ -86,12 +88,12 @@
         <p id="sec04Text" style="margin:0;font-size:14.5px;"></p>
       </div>
 
-      <div class="card card-wood">
+      <div class="card card-earth">
         <h3>05. 착수 전 현장·행정 사전확인 체크리스트</h3>
         <ul style="margin:0;padding-left:20px;font-size:14.2px;line-height:1.8;">
           <li><strong>공급·자격 확정:</strong> 개보수 가능 판정(1~2등급)과 소유자 활용 동의(4~7년 무상임대·임대차) 동시 충족 동수 확정 (가압류·근저당·소유자 불일치·미등기 제외)</li>
           <li><strong>법적·입지 규제 점검:</strong> 문화재 구역 현상변경 심의 대상 여부(군위군 지연 사례) 및 자연취락지구 내 임대업 제한 여부(함양군 전환 사례) 사전 확인</li>
-          <li><strong>예산·정산 범위 확정:</strong> 공종별 견적 및 준공 정산 내역(집기·임차·매입비 포함 여부), 초기비·운영비 분리 및 지방비·자부담 분담 비율 확정</li>
+          <li><strong>예산·정산 범위 확정:</strong> 공종별 견적 및 준공 정산 내역(집기·임차·매입 포함 여부), 초기비·5년 운영비 분리 및 지방비·자부담 분담 비율 확정</li>
           <li id="kpiTargetItem">성과관리 지표 확인</li>
         </ul>
       </div>
@@ -107,10 +109,11 @@
     <div class="wrap">
       <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
       <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
-      <p>※ 표기 금액은 모두 만 원 단위로 통일하였으며, 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
+      <p>※ 외부 지도 API·CDN 없이 작동하며, 모든 금액은 만 원 단위입니다. 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
     </div>
   </footer>
-  <script src="js/common.js"></script>
-  <script src="js/report.js"></script>
+  <script src="js/common.js?v=v4"></script>
+  <script src="js/charts.js?v=v4"></script>
+  <script src="js/report.js?v=v4"></script>
 </body>
 </html>

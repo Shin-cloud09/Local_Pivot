@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Pivot | 3. 대안 시뮬레이션 — 빈집 재생 비교</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=v4" />
 </head>
 <body>
   <header class="gnb">
@@ -23,6 +23,7 @@
       <div class="gnb-status">
         <span id="gnbRegionPill" class="region-pill">지자체 로딩 중...</span>
         <span id="gnbModePill" class="mode-pill">공개자료·가정 기준</span>
+        <button type="button" id="openGuideBtn" class="guide-open-btn">사용 가이드</button>
       </div>
     </div>
   </header>
@@ -31,41 +32,39 @@
     <div class="wrap hero-row">
       <div>
         <p class="eyebrow">STEP 3 · 대안 시뮬레이션</p>
-        <h1>3대 빈집 재생 대안 비교 및 소요예산 시뮬레이터</h1>
+        <h1>3대 빈집 재생 대안 비교 및 5년 재정부담 시뮬레이터</h1>
       </div>
-      <span class="unit-chip">모든 금액: 만 원 · 방문: 회 · 정착: 명</span>
+      <span class="unit-chip">금액: 만 원 · 방문: 회 · 정착: 명</span>
     </div>
   </section>
 
   <main class="wrap">
-    <!-- 초심자용 빠른 시작 가이드 -->
     <div class="guide-bar">
       <div class="guide-steps">
-        <span class="guide-step"><span class="step-num">1</span>시·군과 예산(또는 호수) 선택</span>
+        <span class="guide-step"><span class="step-num">1</span>시·군과 투입 예산(만 원) 설정</span>
         <span class="guide-arrow">→</span>
-        <span class="guide-step"><span class="step-num">2</span>기준 가동률과 대안별 단가 확인</span>
+        <span class="guide-step"><span class="step-num">2</span>기준 가동률·대안별 단가 확인</span>
         <span class="guide-arrow">→</span>
-        <span class="guide-step"><span class="step-num">3</span>아래 비교표·역산 결과 확인 후 보고서 출력</span>
+        <span class="guide-step"><span class="step-num">3</span>5년 재정부담·효과 범위·추진가능성 점검 후 보고서 출력</span>
       </div>
       <span id="simModeBadge" class="badge badge-accent">공개자료·가정 기준</span>
     </div>
 
-    <!-- STEP 1: 기본 조건 및 빠른 프리셋 -->
+    <!-- STEP 1 -->
     <div class="card card-accent">
       <h2>
-        <span class="section-step"><span class="badge-step">STEP 1</span> 대상 지자체 · 규모 · 1회 방문당 소비액 설정</span>
+        <span class="section-step"><span class="badge-step">STEP 1</span> 대상 지자체 · 예산(또는 호수) · 기준 가동률 설정</span>
         <button type="button" id="resetParamsBtn" class="btn btn-sm">기본값 복원</button>
       </h2>
 
-      <p id="simDiagBanner" class="info-box" style="margin:0 0 14px;font-size:13.5px;"></p>
+      <p id="simDiagBanner" class="info-box" style="margin:0 0 14px;font-size:13.4px;"></p>
 
-      <!-- 초심자 원클릭 빠른 시나리오 -->
       <div class="toolbar" style="margin-bottom:14px;">
-        <span style="font-size:12.5px;font-weight:800;color:#355446;">빠른 예시 불러오기:</span>
-        <button type="button" class="btn btn-sm quick-preset-btn" data-mode="units" data-val="3">소규모 시범 (3호)</button>
-        <button type="button" class="btn btn-sm quick-preset-btn" data-mode="units" data-val="10">중규모 거점 (10호)</button>
+        <span style="font-size:12.5px;font-weight:800;color:#556b2f;">빠른 예시 불러오기:</span>
         <button type="button" class="btn btn-sm quick-preset-btn" data-mode="budget" data-val="50000">예산 50,000만 원</button>
         <button type="button" class="btn btn-sm quick-preset-btn" data-mode="budget" data-val="100000">예산 100,000만 원</button>
+        <button type="button" class="btn btn-sm quick-preset-btn" data-mode="budget" data-val="200000">예산 200,000만 원</button>
+        <button type="button" class="btn btn-sm quick-preset-btn" data-mode="units" data-val="5">동일 규모 (5호)</button>
       </div>
 
       <div class="grid-4" style="margin-bottom:14px;">
@@ -82,46 +81,44 @@
           </select>
         </label>
         <label class="field">
-          규모 산정 방식
+          비교 기준 (기본: 동일 예산)
           <select id="costMode">
-            <option value="units">전환 호수 직접 입력</option>
-            <option value="budget">투입 예산(만 원) 기준 자동 산출</option>
+            <option value="budget">동일 예산(만 원) 기준 비교</option>
+            <option value="units">동일 호수 직접 입력 비교</option>
           </select>
         </label>
-        <label class="field" id="unitsWrap">
-          전환 호수 (호, 1 이상 정수)
-          <input type="number" id="inputUnits" min="1" max="500" step="1" value="10" />
-        </label>
-        <label class="field" id="budgetWrap" style="display:none;">
+        <label class="field" id="budgetWrap">
           투입 예산 (만 원)
           <input type="number" id="budget" min="0" step="1000" value="80000" />
+        </label>
+        <label class="field" id="unitsWrap" style="display:none;">
+          전환 호수 (호, 1 이상 정수)
+          <input type="number" id="inputUnits" min="1" max="500" step="1" value="10" />
         </label>
       </div>
 
       <div class="grid-2" style="align-items:stretch;">
-        <!-- 기준 가동률 정의 명확화 박스 -->
         <div class="occ-box">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;">
-            <strong style="font-size:13.5px;color:#162922;">기준 가동률 설정</strong>
-            <strong id="occRateVal" style="color:#1f5c45;font-size:14px;">55% (연 약 201일 운영)</strong>
+            <strong style="font-size:13.5px;color:#252c1b;">기준 가동률 설정 <span class="tag-cert tag-assumed">[가정]</span></strong>
+            <strong id="occRateVal" style="color:#556b2f;font-size:14px;">55% (연 약 201일 운영)</strong>
           </div>
-          <input type="range" id="occRate" min="15" max="90" step="5" value="55" aria-label="기준 가동률 조절" />
+          <input type="range" id="occRate" min="0" max="100" step="5" value="55" aria-label="기준 가동률 조절" />
           <div id="occExplain" class="occ-def"></div>
         </div>
 
-        <div class="occ-box" style="background:#fafcfa;border-color:#d4dfd7;">
+        <div class="occ-box" style="background:#fcfbf6;border-color:#ddd8c8;">
           <label class="field">
-            1회 방문당 추정 소비액 (만 원, 예시 가정)
+            <span>1회 방문당 추정 소비액 (만 원) <span class="tag-cert tag-assumed">[가정]</span></span>
             <input type="number" id="perVisitSpendMan" min="0" step="0.5" value="5.0" />
           </label>
           <div class="occ-def">
-            방문자 1명이 1회 방문 시 지역 식음료·숙박·쇼핑 등에 지출하는 예상 금액입니다.<br>
-            (통계청 <strong>월간</strong> 카드소비액과 단위가 다르므로 별도 입력합니다.)
+            방문자 1명이 1회 방문 시 지역 상권에 지출하는 가정 금액입니다.<br>
+            (통계청 <strong>월간</strong> 카드소비액과 별개이며, 순증 소비가 아닌 총액 추정치입니다.)
           </div>
         </div>
       </div>
 
-      <!-- 숨겨진 시나리오 select (대안 카드 클릭과 동기화) -->
       <select id="scenarioSelect" hidden aria-hidden="true">
         <option value="A">A</option>
         <option value="B">B</option>
@@ -129,73 +126,69 @@
       </select>
     </div>
 
-    <!-- STEP 2: 대안별 개별 초기 전환비·운영비 인터랙티브 카드 -->
+    <!-- STEP 2 -->
     <div class="card">
       <h2>
         <span class="section-step"><span class="badge-step">STEP 2</span> 대안별 초기 전환비 · 연 운영비 설정 (카드를 클릭해 중점 대안 선택)</span>
-        <span class="badge">금액 단위: 만 원</span>
+        <span class="badge">5년 누적 재정부담 자동 계산</span>
       </h2>
 
       <div class="grid-3">
-        <!-- 대안 A 카드 -->
         <div id="altCardA" class="alt-card selected">
           <div id="altCardHeadA" class="alt-card-head">
             <label class="alt-card-title" style="cursor:pointer;">
               <input type="radio" name="altPick" id="altRadioA" value="A" checked />
               <span>A. 체류형 워케이션</span>
             </label>
-            <span id="altRecBadgeA" class="badge badge-accent" style="display:none;">진단 추천</span>
+            <span id="altRecBadgeA" class="badge badge-accent" style="display:none;">우선 후보</span>
           </div>
-          <div style="font-size:12.5px;color:#4b6359;">단기·중기 원격근무 방문객 유치 (개별 빈집 공고 단가 미확정 · 예시 가정)</div>
+          <div style="font-size:12.5px;color:#5c634d;">단위: 연간 운영일수 (좌석·체류) <span class="tag-cert tag-assumed">[가정]</span></div>
           <div class="grid-2" style="gap:8px;">
             <label class="field">호당 초기비(만 원)<input type="number" id="initCostA" min="100" step="500" value="8000" /></label>
             <label class="field">호당 연운영비(만 원)<input type="number" id="opCostA" min="0" step="100" value="1200" /></label>
           </div>
           <div id="altSumA" class="alt-summary-strip">—</div>
-          <div style="font-size:11.5px;color:#4b6359;">참고: 충남 공간활용 100,000만 원 · 군위 신축 550,000만 원</div>
+          <div style="font-size:11.5px;color:#5c634d;">참고: 충남 공간활용 100,000만 원 · 군위 신축 550,000만 원</div>
         </div>
 
-        <!-- 대안 B 카드 -->
         <div id="altCardB" class="alt-card">
           <div id="altCardHeadB" class="alt-card-head">
             <label class="alt-card-title" style="cursor:pointer;">
               <input type="radio" name="altPick" id="altRadioB" value="B" />
               <span>B. 청년 로컬 창업</span>
             </label>
-            <span id="altRecBadgeB" class="badge badge-accent" style="display:none;">진단 추천</span>
+            <span id="altRecBadgeB" class="badge badge-accent" style="display:none;">우선 후보</span>
           </div>
-          <div style="font-size:12.5px;color:#4b6359;">주거·창업 복합 공간으로 상권 활력 연계 (개별 공고 단가 미확정 · 예시 가정)</div>
+          <div style="font-size:12.5px;color:#5c634d;">단위: 연간 영업·운영일수 <span class="tag-cert tag-assumed">[가정]</span></div>
           <div class="grid-2" style="gap:8px;">
             <label class="field">호당 초기비(만 원)<input type="number" id="initCostB" min="100" step="500" value="9000" /></label>
             <label class="field">호당 연운영비(만 원)<input type="number" id="opCostB" min="0" step="100" value="1500" /></label>
           </div>
           <div id="altSumB" class="alt-summary-strip">—</div>
-          <div style="font-size:11.5px;color:#4b6359;">참고: 함양 추가 1동 18,000만 원+운영 10,000만 원 · 영월 신축 478,900만 원</div>
+          <div style="font-size:11.5px;color:#5c634d;">참고: 함양 추가 1동 18,000만 원+운영 10,000만 원 · 영월 478,900만 원</div>
         </div>
 
-        <!-- 대안 C 카드 -->
         <div id="altCardC" class="alt-card">
           <div id="altCardHeadC" class="alt-card-head">
             <label class="alt-card-title" style="cursor:pointer;">
               <input type="radio" name="altPick" id="altRadioC" value="C" />
               <span>C. 귀농·귀촌 정착</span>
             </label>
-            <span id="altRecBadgeC" class="badge badge-accent" style="display:none;">진단 추천</span>
+            <span id="altRecBadgeC" class="badge badge-accent" style="display:none;">우선 후보</span>
           </div>
-          <div style="font-size:12.5px;color:#4b6359;">장기 거주 지원으로 정주 인구 유입 (지자체 공고 지원 한도 참고)</div>
+          <div style="font-size:12.5px;color:#5c634d;">단위: 연간 입주·거주일수 (공고 한도 참고)</div>
           <div class="grid-2" style="gap:8px;">
             <label class="field">호당 초기비(만 원)<input type="number" id="initCostC" min="100" step="500" value="6000" /></label>
             <label class="field">호당 연운영비(만 원)<input type="number" id="opCostC" min="0" step="100" value="300" /></label>
           </div>
           <div id="altSumC" class="alt-summary-strip">—</div>
           <div style="display:flex;gap:5px;flex-wrap:wrap;">
-            <button type="button" class="btn btn-sm preset-c-btn" data-cost="6000">단양·고흥 하한 6,000만</button>
+            <button type="button" class="btn btn-sm preset-c-btn" data-cost="6000">단양·고흥 6,000만</button>
             <button type="button" class="btn btn-sm preset-c-btn" data-cost="8000">고흥 상한 8,000만</button>
           </div>
         </div>
       </div>
 
-      <!-- 세부 가정값 직접 수정 (선택 펼침) -->
       <details class="panel-details">
         <summary>고급 설정: 선택 대안(<span id="activeParamLabel">체류형 워케이션</span>)의 방문·정착 가정 계수 직접 수정하기</summary>
         <div class="grid-3" style="margin-top:12px;">
@@ -214,28 +207,33 @@
         </div>
       </details>
 
-      <!-- 선택 기능: 공무원 자체 보유 CSV 업로드 (접기/펼치기) -->
-      <details id="uploadDetails" class="panel-details" style="border-color:#decab2;background:#fdfcf9;">
-        <summary style="color:#8a6a44;">선택 기능: 지자체 자체 조사 데이터(CSV)가 있다면 클릭하여 반영하기 (100% 브라우저 로컬 처리)</summary>
+      <details id="uploadDetails" class="panel-details" style="border-color:#decab2;background:#fffdf9;">
+        <summary style="color:#8b7355;">선택 기능: 지자체 자체 조사 CSV 업로드 (다중 행 · 대안별 단가 지원 · 로컬 처리)</summary>
         <div style="margin-top:12px;">
           <div id="uploadStatusBox" class="info-box" style="margin-bottom:12px;"></div>
+          <div id="csvRowSelectWrap" class="toolbar" style="display:none;margin-bottom:10px;">
+            <label class="field" style="min-width:280px;">
+              업로드된 다중 행 중 반영할 지역 선택
+              <select id="csvRowSelect"></select>
+            </label>
+          </div>
           <div class="grid-2" style="align-items:center;">
             <div id="csvDropzone" class="dropzone" tabindex="0" role="button" aria-label="CSV 파일 업로드 영역">
               <input type="file" id="csvFileInput" accept=".csv" hidden />
-              <div style="font-weight:800;color:#1f5c45;margin-bottom:4px;">CSV 파일을 여기에 끌어다 놓거나 클릭하세요</div>
-              <div style="font-size:12.5px;color:#4b6359;">외부 서버로 전송되지 않으며 내 PC 브라우저 안에서만 계산됩니다.</div>
+              <div style="font-weight:800;color:#556b2f;margin-bottom:4px;">CSV 파일을 끌어다 놓거나 클릭하여 선택하세요</div>
+              <div style="font-size:12.5px;color:#5c634d;">외부 서버로 전송되지 않으며 내 PC 브라우저 안에서만 계산됩니다.</div>
             </div>
             <div style="display:flex;flex-direction:column;gap:8px;">
               <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-                <button type="button" id="downloadTemplateBtn" class="btn btn-wood btn-sm">표준 CSV 양식 다운로드</button>
+                <button type="button" id="downloadTemplateBtn" class="btn btn-earth btn-sm">표준 CSV 양식 다운로드</button>
                 <button type="button" id="resetCustomBtn" class="btn btn-sm" disabled>공개자료 기본값으로 복원</button>
               </div>
-              <label id="capCandidateWrap" style="display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#8a6a44;cursor:pointer;">
-                <input type="checkbox" id="capCandidateCheck" />
-                보유 후보주택 동수 이내로 전환 호수 자동 제한
+              <label id="capCandidateWrap" style="display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#8b7355;cursor:pointer;">
+                <input type="checkbox" id="capCandidateCheck" checked />
+                보유 후보주택 동수 이내로 전환 호수 자동 제한 (상한 적용)
               </label>
-              <div style="font-size:12px;color:#4b6359;">
-                열 이름: <code>지역명</code>, <code>확정_후보주택_동수</code>, <code>호당_실제전환비_만원</code>, <code>투입예산_만원</code>, <code>실측_가동률_퍼센트</code>
+              <div style="font-size:12px;color:#5c634d;">
+                필수 열: <code>지역명</code>, <code>확정_후보주택_동수</code>, <code>호당_실제전환비_만원</code>, <code>투입예산_만원</code>, <code>실측_가동률_퍼센트</code> (선택 열: <code>대안A/B/C_초기비_만원</code>)
               </div>
             </div>
           </div>
@@ -244,28 +242,28 @@
       </details>
 
       <div id="simErrorBox" class="notice-danger" style="display:none;"></div>
-      <p id="costNote" class="info-box" style="margin:12px 0 0;font-size:13.5px;"></p>
+      <p id="costNote" class="info-box" style="margin:12px 0 0;font-size:13.4px;"></p>
     </div>
 
-    <!-- STEP 3: 시뮬레이션 결과 요약 KPI -->
+    <!-- STEP 3: 핵심 KPI (재정부담 축과 소비 추정 축 명확 분리) -->
     <div class="grid-4" style="margin-bottom:20px;">
       <div class="kpi highlight">
-        <div class="kpi-label">전환 규모 · 물리적 가동일수</div>
+        <div class="kpi-label" id="resUnitsLabel">전환 규모 · 운영일수</div>
         <div class="kpi-val" id="resUnits">—</div>
         <div class="kpi-sub" id="resUnitsSub">—</div>
       </div>
       <div class="kpi">
-        <div class="kpi-label">연간 예상 방문 (기준)</div>
+        <div class="kpi-label"><span>5년 단순 누적 재정부담</span> <span class="tag-cert tag-calc">[산출]</span></div>
+        <div class="kpi-val" id="resFiscal">—</div>
+        <div class="kpi-sub" id="resFiscalSub">—</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label"><span>연간 예상 방문 (기준)</span> <span class="tag-cert tag-assumed">[가정]</span></div>
         <div class="kpi-val" id="resVisits">—</div>
         <div class="kpi-sub" id="resVisitsSub">—</div>
       </div>
-      <div class="kpi">
-        <div class="kpi-label">신규 정착 인원 (기준)</div>
-        <div class="kpi-val" id="resSettlers">—</div>
-        <div class="kpi-sub" id="resSettlersSub">—</div>
-      </div>
       <div class="kpi highlight">
-        <div class="kpi-label">연간 추가 소비 추정 (기준)</div>
+        <div class="kpi-label"><span>방문 관련 소비 추정액</span> <span class="tag-cert tag-assumed">[가정]</span></div>
         <div class="kpi-val" id="resSpend">—</div>
         <div class="kpi-sub" id="resEfficiency">—</div>
       </div>
@@ -274,20 +272,20 @@
     <!-- 3대 대안 병렬 비교표 -->
     <div class="card">
       <h2>
-        <span class="section-step"><span class="badge-step">STEP 3</span> 3대 대안 한눈에 비교 (대안별 초기비 · 3년 누적 총비용 반영)</span>
-        <span class="badge badge-warn">사전검토용 가정 추정치</span>
+        <span class="section-step"><span class="badge-step">STEP 3</span> 3대 대안 비교 (5년 재정부담 · 방문 · 정착 · 소비 분리 표기)</span>
+        <span id="compareModeBadge" class="badge badge-accent">동일 예산 기준 비교</span>
       </h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>대안 유형</th>
-              <th class="num">전환 호수</th>
-              <th class="num">초기비 (3년 누적)</th>
+              <th class="num">전환 호수 (잔액)</th>
+              <th class="num">초기비 (연운영비)</th>
+              <th class="num">5년 누적 재정부담</th>
               <th class="num">연간 방문(회)</th>
               <th class="num">신규 정착(명)</th>
-              <th class="num">연간 추가 소비</th>
-              <th class="num">초기비 대비 소비</th>
+              <th class="num">방문 관련 소비 추정</th>
             </tr>
           </thead>
           <tbody id="compareAllBody"></tbody>
@@ -295,37 +293,37 @@
       </div>
     </div>
 
-    <!-- 가동률 변화에 따른 효과 범위 -->
+    <!-- 가동률별 효과 범위 (순수 내장 SVG 그래프) -->
     <div class="card">
       <h2>선택 대안의 가동률별 효과 범위 (보수 -10%p · 기준 · 낙관 +10%p)</h2>
       <div class="grid-2" style="align-items:center;">
-        <div class="chart-box-sm"><canvas id="simChart"></canvas></div>
+        <div id="simChartBox" class="chart-box-sm"></div>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
                 <th>구분</th>
                 <th class="num">가동률</th>
-                <th class="num">가동 객실일수</th>
+                <th class="num" id="sensCapHeader">연간 운영일수</th>
                 <th class="num">연간 방문(회)</th>
                 <th class="num">신규 정착(명)</th>
-                <th class="num">추가 소비(만 원)</th>
+                <th class="num">방문 관련 소비 추정</th>
               </tr>
             </thead>
             <tbody id="sensitivityBody"></tbody>
           </table>
-          <p style="font-size:12.5px;color:#4b6359;margin:8px 0 0;">
-            ※ 방문 횟수(회, 중복 포함)와 신규 정착 인원(명)은 성격이 달라 합산하지 않습니다.
+          <p style="font-size:12.4px;color:#5c634d;margin:8px 0 0;">
+            ※ 방문 횟수(회, 중복 포함)와 신규 정착 인원(명)은 합산하지 않습니다. 소비 추정액은 순증 소비·투자수익률(ROI)이 아닙니다.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- 목표 달성 필요 조건 역산 계산기 -->
-    <div class="card card-wood">
+    <!-- 목표 달성 필요 조건 역산 -->
+    <div class="card card-earth">
       <h2>
         <span>목표 달성 필요 조건 계산기 (예산·호수 역산)</span>
-        <span class="badge badge-wood">예산 심의 사전 검증</span>
+        <span class="badge badge-earth">이론 상한 100% / 검토 기준 상한 85%</span>
       </h2>
       <div class="toolbar">
         <label class="field">
@@ -343,9 +341,26 @@
       <div id="goalSeekResult" class="info-box"></div>
     </div>
 
+    <!-- P1-08: 공무원용 사전 추진가능성 자가점검 -->
+    <div class="card">
+      <h2>
+        <span>공무원용 사전 추진가능성 자가점검 (자체 점검용 · 법적 승인 아님)</span>
+        <span class="badge badge-warn">미확인 항목은 통과 처리되지 않음</span>
+      </h2>
+      <div id="feasibilityStatusBox" class="info-box" style="margin-bottom:10px;"></div>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" id="chkHousing" /><span>1. 개보수 가능 빈집(1~2등급) 현장 물량 확보 확인</span></label>
+        <label class="check-item"><input type="checkbox" id="chkConsent" /><span>2. 소유자 활용 동의(4~7년 무상임대·임대차) 및 권리관계 확인</span></label>
+        <label class="check-item"><input type="checkbox" id="chkSafety" /><span>3. 건물 구조·안전 상태 및 개보수 가능 판정 확인</span></label>
+        <label class="check-item"><input type="checkbox" id="chkLegal" /><span>4. 문화재 구역·자연취락지구 임대업 등 법규·인허가 사전 확인</span></label>
+        <label class="check-item"><input type="checkbox" id="chkOperator" /><span>5. 시설 위탁 또는 직영 운영주체 확보 여부 확인</span></label>
+        <label class="check-item"><input type="checkbox" id="chkOpBudget" /><span>6. 5년간 연간 유지관리·운영비 재원 확보 계획 확인</span></label>
+      </div>
+    </div>
+
     <div class="chapter-footer">
       <a href="solution.html" class="btn">← 이전: 2. 거점·사례</a>
-      <a href="report.html" class="btn btn-primary">다음: 4. A4 사전검토 보고서 출력 →</a>
+      <a href="report.html" class="btn btn-primary">다음: 4. 결재용 A4/HWP 보고서 출력 →</a>
     </div>
   </main>
 
@@ -353,12 +368,12 @@
     <div class="wrap">
       <p><strong>Local Pivot</strong> · 전국 89개 인구감소지역 빈집 재생 사전검토 정책 시뮬레이터 (팀: 신동현 · 신정민 · 차준호)</p>
       <p>데이터 출처: 통계청 주택총조사(2025)·생활인구(2026.05~06), 한국고용정보원 소멸위험지수(2024.03), 한국관광 데이터랩(2025.11~2026.10), 지자체 공고·시행계획·의회 회의록</p>
-      <p>※ 표기 금액은 모두 만 원 단위로 통일하였으며, 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
+      <p>※ 외부 지도 API·CDN 없이 작동하며, 모든 금액은 만 원 단위입니다. 시뮬레이션 수치는 사전검토용 참고 추정치입니다.</p>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/uploader.js"></script>
-  <script src="js/simulator.js"></script>
+  <script src="js/common.js?v=v4"></script>
+  <script src="js/charts.js?v=v4"></script>
+  <script src="js/uploader.js?v=v4"></script>
+  <script src="js/simulator.js?v=v4"></script>
 </body>
 </html>

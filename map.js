@@ -1,49 +1,56 @@
 /**
  * index.html [1. 현황 진단] 전용 스크립트
- * - 외부 유료/API 타일 미사용: 전국 230개 시군구 GeoJSON 벡터 지도를 기본 렌더링(API 워터마크·타일 오류 원천 제거)
- * - 선택 시 무료 OpenStreetMap 도로 배경지도 토글 가능
+ * - 지도 API·외부 타일·외부 CDN 완전 제거: data/korea_sgg_master.geojson을 순수 내장 SVG로 직접 렌더링
+ * - 확대/축소/드래그 이동/초기화/호버 툴팁/클릭 선택 모두 브라우저 자체 처리
  */
 (async () => {
   const LP = window.LocalPivot;
-  let map, geoLayer, legendControl, osmLayer = null;
-  let osmEnabled = false;
+  LP.initOnboardingGuide(true);
+
   let regions = {};
+  let features = [];
   let currentMetric = 'unoccupied_rate';
   let state = LP.getState();
 
+  // SVG viewport & pan/zoom state
+  const BASE_W = 540, BASE_H = 640;
+  let vb = { x: 0, y: 0, w: BASE_W, h: BASE_H };
+  let isDragging = false;
+  let dragStart = { x: 0, y: 0, vbx: 0, vby: 0 };
+
   const METRIC_META = {
     unoccupied_rate: {
-      label: '미거주주택 비율 (%)',
+      label: '미거주주택 비율 (%) [공식]',
       breaks: [22, 18, 15, 12],
-      colors: ['#164e3b', '#1f5c45', '#4c8c71', '#88b9a3', '#d4e8dd'],
+      colors: ['#3b4d1d', '#556b2f', '#7a914b', '#a8ba7f', '#dce4c6'],
       labels: ['22% 초과', '18~22%', '15~18%', '12~15%', '12% 이하'],
       fmtVal: v => `${LP.fmtDec(v, 2)}%`
     },
     extinction_index: {
-      label: '소멸위험지수 (낮을수록 고위험)',
+      label: '소멸위험지수 (낮을수록 고위험) [공식]',
       breaks: [0.2, 0.3, 0.4, 0.5],
-      colors: ['#9f1239', '#e11d48', '#fb7185', '#fda4af', '#ffe4e6'],
+      colors: ['#9e3229', '#c94a3d', '#e07a6c', '#f0b1a8', '#fae0dc'],
       labels: ['0.2 미만 (소멸고위험)', '0.2~0.3', '0.3~0.4', '0.4~0.5', '0.5 이상'],
       fmtVal: v => LP.fmtDec(v, 4)
     },
     stay_ratio: {
-      label: '체류인구 배수 (등록인구 대비)',
+      label: '공식 체류인구 배수 (배) [공식]',
       breaks: [10, 7, 5, 3.5],
-      colors: ['#1e3a8a', '#2563eb', '#60a5fa', '#93c5fd', '#dbeafe'],
+      colors: ['#2b4c6f', '#3f6c99', '#6793bd', '#9cb9d6', '#d6e3f0'],
       labels: ['10배 초과', '7~10배', '5~7배', '3.5~5배', '3.5배 이하'],
       fmtVal: v => `${LP.fmtDec(v, 2)}배`
     },
     spend_per_person: {
-      label: '1인당 월간 카드소비액 (만 원)',
+      label: '1인당 월간 카드소비액 (만 원) [공식]',
       breaks: [150000, 130000, 115000, 100000],
-      colors: ['#5c4028', '#8a6a44', '#b29470', '#d4bea1', '#f1e7d8'],
+      colors: ['#5e4931', '#8b7355', '#ad9678', '#cfbfa8', '#ece3d5'],
       labels: ['15만 원 초과', '13~15만 원', '11.5~13만 원', '10~11.5만 원', '10만 원 이하'],
       fmtVal: v => LP.fmtWonAsMan(v, 2)
     }
   };
 
   function getColor(val, metric) {
-    if (val === null || val === undefined) return '#eef2ee';
+    if (val === null || val === undefined || !Number.isFinite(val)) return '#ebe7da';
     const m = METRIC_META[metric];
     if (metric === 'extinction_index') {
       if (val < m.breaks[0]) return m.colors[0];
@@ -75,11 +82,11 @@
     const avgExt = list.reduce((s, r) => s + (r.extinction_index || 0), 0) / list.length;
     const highRiskCount = list.filter(r => r.extinction_index < 0.2).length;
 
-    LP.animateNumber(document.getElementById('kpiTotalUnocc'), totalUnocc, v => `${LP.fmt(v)}호`);
-    LP.animateNumber(document.getElementById('kpiAvgRate'), weightedRate, v => `${LP.fmtDec(v, 2)}%`);
+    document.getElementById('kpiTotalUnocc').textContent = `${LP.fmt(totalUnocc)}호`;
+    document.getElementById('kpiAvgRate').textContent = `${LP.fmtDec(weightedRate, 2)}%`;
     document.getElementById('kpiAvgRateSub').textContent = `전체 주택 가중평균 (시군구 단순평균 ${LP.fmtDec(simpleAvgRate, 2)}%)`;
-    LP.animateNumber(document.getElementById('kpiAvgExt'), avgExt, v => LP.fmtDec(v, 3));
-    LP.animateNumber(document.getElementById('kpiHighRisk'), highRiskCount, v => `${LP.fmt(v)}곳 / ${list.length}곳`);
+    document.getElementById('kpiAvgExt').textContent = LP.fmtDec(avgExt, 3);
+    document.getElementById('kpiHighRisk').textContent = `${LP.fmt(highRiskCount)}곳 / ${list.length}곳`;
   }
 
   function renderRegionDetail(code) {
@@ -104,108 +111,193 @@
     document.getElementById('selUnocc').textContent = `${LP.fmt(r.unoccupied_housing)}호 (${LP.fmtDec(r.unoccupied_rate, 2)}%)`;
     document.getElementById('selTotalHousing').textContent = `전체 주택 ${LP.fmt(r.total_housing)}호 중 (89개 중 ${diag.ranks.unoccRateRank}위)`;
     document.getElementById('selStayPop').textContent = `${LP.fmt(lp.stay_pop)}명`;
-    document.getElementById('selStayRatio').textContent = `등록인구 ${LP.fmt(lp.resident_pop)}명 대비 ${LP.fmtDec(lp.stay_ratio, 2)}배 (${LP.periodLabel(state.monthKey)})`;
+    document.getElementById('selStayRatio').textContent = `공식 체류배수 ${LP.fmtDec(lp.stay_ratio, 2)}배 · 등록인구 ${LP.fmt(lp.resident_pop)}명 (${LP.periodLabel(state.monthKey)})`;
     document.getElementById('selSpend').textContent = LP.fmtWonAsMan(lp.spend_per_person, 2);
     document.getElementById('selStayHours').textContent = `월간 1인당 카드소비 · 평균 체류 ${LP.fmtDec(lp.avg_stay_hours, 1)}시간`;
 
     const isPilot = ['43800', '46770', '47730'].includes(code);
     document.getElementById('pilotBadgeNote').innerHTML =
-      `<strong>지역 진단: [${LP.escapeHtml(diag.typeLabel)}]</strong><br>` +
-      `1차 우선 검토 대안: <strong>${LP.escapeHtml(diag.recommendedText)}</strong><br>` +
-      `<span style="color:#4b6359;font-size:12px;">${isPilot ? '시범 거점 3개 지역에 포함되어 2단계에서 12개월 관광 추이·실제 전환비를 확인할 수 있습니다.' : '아래 버튼으로 바로 대안 시뮬레이션을 실행할 수 있습니다.'}</span>`;
+      `<strong>지역 유형 진단 [${LP.escapeHtml(diag.typeLabel)}]:</strong><br>` +
+      `우선 검토 후보: <strong>${LP.escapeHtml(diag.recommendedText)}</strong><br>` +
+      `<span style="color:#5c634d;font-size:12.2px;">${LP.escapeHtml(diag.reason)} ${isPilot ? '(시범 3거점 포함: 2단계에서 12개월 추이 확인 가능)' : ''}</span>`;
 
     const quickSimBtn = document.getElementById('quickSimLink');
     if (quickSimBtn) {
       quickSimBtn.href = `alternatives.html?region=${code}&scenario=${diag.recommendedKey}`;
     }
 
-    if (geoLayer) updateMapStyle();
+    updateSvgColors();
   }
 
   function updateLegend() {
-    if (!legendControl) return;
     const m = METRIC_META[currentMetric];
-    const div = legendControl.getContainer();
-    div.innerHTML = `<div style="font-weight:800;margin-bottom:4px;color:#162922;">${m.label}</div>` +
+    const el = document.getElementById('mapLegend');
+    if (!el) return;
+    el.innerHTML = `<div style="font-weight:800;margin-bottom:4px;color:#252c1b;">${m.label}</div>` +
       m.colors.map((c, i) => `<div class="legend-row"><span class="legend-swatch" style="background:${c}"></span><span>${m.labels[i]}</span></div>`).join('') +
-      `<div class="legend-row" style="margin-top:3px;color:#64748b;"><span class="legend-swatch" style="background:#eef2ee"></span><span>비인구감소지역 (141곳)</span></div>`;
+      `<div class="legend-row" style="margin-top:3px;color:#787f68;"><span class="legend-swatch" style="background:#ebe7da"></span><span>비인구감소지역 (141곳)</span></div>`;
   }
 
-  function updateMapStyle() {
-    if (!geoLayer) return;
-    geoLayer.eachLayer(layer => {
-      const p = layer.feature.properties;
-      const isSelected = p.adm_cd === state.regionCode;
-      const val = getMetricValue(p, state.monthKey, currentMetric);
-      layer.setStyle({
-        fillColor: getColor(val, currentMetric),
-        weight: isSelected ? 2.8 : (p.is_target_89 ? 0.9 : 0.6),
-        color: isSelected ? '#162922' : (p.is_target_89 ? '#ffffff' : '#c9d5ce'),
-        fillOpacity: p.is_target_89 ? (isSelected ? 0.96 : (osmEnabled ? 0.72 : 0.88)) : (osmEnabled ? 0.2 : 0.85)
-      });
-      if (isSelected && layer.bringToFront) layer.bringToFront();
+  function updateSvgColors() {
+    const svg = document.getElementById('koreaMapSvg');
+    if (!svg) return;
+    const paths = svg.querySelectorAll('path[data-cd]');
+    let selectedEl = null;
+    paths.forEach(pEl => {
+      const cd = pEl.getAttribute('data-cd');
+      const isTarget = pEl.getAttribute('data-target') === '1';
+      const isSelected = cd === state.regionCode;
+      if (!isTarget) {
+        pEl.setAttribute('fill', '#ebe7da');
+        pEl.setAttribute('stroke', '#d2cdbd');
+        pEl.setAttribute('stroke-width', '0.5');
+        return;
+      }
+      const r = regions[cd];
+      const val = r ? getMetricValue({ ...r, is_target_89: true }, state.monthKey, currentMetric) : null;
+      pEl.setAttribute('fill', getColor(val, currentMetric));
+      pEl.setAttribute('stroke', isSelected ? '#1a2012' : '#faf8f2');
+      pEl.setAttribute('stroke-width', isSelected ? '2.2' : '0.7');
+      if (isSelected) selectedEl = pEl;
     });
+    if (selectedEl && selectedEl.parentNode) {
+      selectedEl.parentNode.appendChild(selectedEl); // Bring selected border to front
+    }
     updateLegend();
   }
 
-  function initMap(geojsonData) {
-    map = L.map('map', {
-      zoomControl: true,
-      preferCanvas: true,
-      attributionControl: false
-    }).setView([36.2, 127.8], 7);
+  function applyViewBox() {
+    const svg = document.getElementById('koreaMapSvg');
+    if (svg) svg.setAttribute('viewBox', `${vb.x.toFixed(1)} ${vb.y.toFixed(1)} ${vb.w.toFixed(1)} ${vb.h.toFixed(1)}`);
+  }
 
-    // Clean API-free custom attribution (No API key watermark)
-    L.control.attribution({ prefix: false, position: 'bottomleft' })
-      .addAttribution('행정구역 경계: 통계청 SGIS 기반')
-      .addTo(map);
+  function buildNativeSvgMap(geojsonData) {
+    features = geojsonData.features || [];
+    // Compute equirectangular projection adjusted by cos(36 deg) for Korea aspect ratio
+    const cosLat = Math.cos(36 * Math.PI / 180);
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
 
-    geoLayer = L.geoJSON(geojsonData, {
-      onEachFeature: (feature, layer) => {
-        const p = feature.properties;
-        if (!p.is_target_89) return;
-        layer.on({
-          click: () => renderRegionDetail(p.adm_cd),
-          mouseover: (e) => {
-            const val = getMetricValue(p, state.monthKey, currentMetric);
-            const txt = METRIC_META[currentMetric].fmtVal(val);
-            e.target.bindTooltip(`<strong>${LP.escapeHtml(p.full_name)}</strong><br>${METRIC_META[currentMetric].label}: ${txt}`, { sticky: true }).openTooltip();
-          }
+    function scanCoords(coords) {
+      if (typeof coords[0] === 'number') {
+        const x = coords[0] * cosLat;
+        const y = -coords[1];
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      } else {
+        for (let i = 0; i < coords.length; i++) scanCoords(coords[i]);
+      }
+    }
+    features.forEach(ft => scanCoords(ft.geometry.coordinates));
+
+    const pad = 20;
+    const scale = Math.min((BASE_W - pad * 2) / (maxX - minX), (BASE_H - pad * 2) / (maxY - minY));
+    const offsetX = (BASE_W - (maxX - minX) * scale) / 2;
+    const offsetY = (BASE_H - (maxY - minY) * scale) / 2;
+
+    const proj = (lng, lat) => [
+      (lng * cosLat - minX) * scale + offsetX,
+      (-lat - minY) * scale + offsetY
+    ];
+
+    function ringToPath(ring) {
+      let d = '';
+      // Decimate dense vertices slightly for super-fast SVG rendering while keeping crisp coastline
+      const step = ring.length > 600 ? 4 : (ring.length > 200 ? 2 : 1);
+      for (let i = 0; i < ring.length; i += step) {
+        const [x, y] = proj(ring[i][0], ring[i][1]);
+        d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
+      }
+      return d + 'Z';
+    }
+
+    function geomToPath(geom) {
+      if (geom.type === 'Polygon') {
+        return geom.coordinates.map(ringToPath).join('');
+      }
+      if (geom.type === 'MultiPolygon') {
+        return geom.coordinates.map(poly => poly.map(ringToPath).join('')).join('');
+      }
+      return '';
+    }
+
+    const svg = document.getElementById('koreaMapSvg');
+    const frag = document.createDocumentFragment();
+    const NS = 'http://www.w3.org/2000/svg';
+    const g = document.createElementNS(NS, 'g');
+
+    // Render non-targets first, then 89 targets on top
+    const ordered = [...features].sort((a, b) => Number(!!a.properties.is_target_89) - Number(!!b.properties.is_target_89));
+    ordered.forEach(ft => {
+      const p = ft.properties;
+      const d = geomToPath(ft.geometry);
+      if (!d) return;
+      const pathEl = document.createElementNS(NS, 'path');
+      pathEl.setAttribute('d', d);
+      pathEl.setAttribute('data-cd', p.adm_cd || '');
+      pathEl.setAttribute('data-target', p.is_target_89 ? '1' : '0');
+      if (p.is_target_89) {
+        pathEl.style.cursor = 'pointer';
+        pathEl.addEventListener('click', () => renderRegionDetail(p.adm_cd));
+        pathEl.addEventListener('mousemove', (e) => {
+          const tip = document.getElementById('mapTooltip');
+          const stage = document.getElementById('mapStage');
+          const rect = stage.getBoundingClientRect();
+          const r = regions[p.adm_cd];
+          const val = r ? getMetricValue({ ...r, is_target_89: true }, state.monthKey, currentMetric) : null;
+          tip.innerHTML = `<strong>${LP.escapeHtml(p.full_name)}</strong><br>${METRIC_META[currentMetric].label}: ${METRIC_META[currentMetric].fmtVal(val)}`;
+          tip.style.display = 'block';
+          tip.style.left = `${Math.min(rect.width - 210, e.clientX - rect.left + 14)}px`;
+          tip.style.top = `${Math.max(8, e.clientY - rect.top - 36)}px`;
+        });
+        pathEl.addEventListener('mouseleave', () => {
+          document.getElementById('mapTooltip').style.display = 'none';
         });
       }
-    }).addTo(map);
+      g.appendChild(pathEl);
+    });
 
-    map.fitBounds(geoLayer.getBounds(), { padding: [14, 14] });
+    frag.appendChild(g);
+    svg.innerHTML = '';
+    svg.appendChild(frag);
+    applyViewBox();
 
-    legendControl = L.control({ position: 'bottomright' });
-    legendControl.onAdd = () => L.DomUtil.create('div', 'legend-box');
-    legendControl.addTo(map);
-    updateMapStyle();
-
+    // Pan & Zoom Controls (100% pure native)
+    const zoom = (factor) => {
+      const newW = Math.max(120, Math.min(BASE_W * 1.1, vb.w * factor));
+      const newH = newW * (BASE_H / BASE_W);
+      vb.x += (vb.w - newW) / 2;
+      vb.y += (vb.h - newH) / 2;
+      vb.w = newW;
+      vb.h = newH;
+      applyViewBox();
+    };
+    document.getElementById('zoomInBtn').addEventListener('click', () => zoom(0.75));
+    document.getElementById('zoomOutBtn').addEventListener('click', () => zoom(1.33));
     document.getElementById('resetMapViewBtn').addEventListener('click', () => {
-      map.fitBounds(geoLayer.getBounds(), { padding: [14, 14] });
+      vb = { x: 0, y: 0, w: BASE_W, h: BASE_H };
+      applyViewBox();
     });
 
-    document.getElementById('toggleOsmBtn').addEventListener('click', (e) => {
-      osmEnabled = !osmEnabled;
-      if (osmEnabled) {
-        if (!osmLayer) {
-          osmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '&copy; OpenStreetMap'
-          });
-        }
-        osmLayer.addTo(map);
-        osmLayer.bringToBack();
-        e.target.classList.add('active');
-        e.target.textContent = '배경지도 끄기';
-      } else {
-        if (osmLayer) map.removeLayer(osmLayer);
-        e.target.classList.remove('active');
-        e.target.textContent = '도로 배경지도 켜기';
-      }
-      updateMapStyle();
+    svg.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragStart = { x: e.clientX, y: e.clientY, vbx: vb.x, vby: vb.y };
     });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const rect = svg.getBoundingClientRect();
+      const dx = (e.clientX - dragStart.x) * (vb.w / rect.width);
+      const dy = (e.clientY - dragStart.y) * (vb.h / rect.height);
+      vb.x = dragStart.vbx - dx;
+      vb.y = dragStart.vby - dy;
+      applyViewBox();
+    });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    svg.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      zoom(e.deltaY < 0 ? 0.85 : 1.18);
+    }, { passive: false });
   }
 
   try {
@@ -231,7 +323,7 @@
     select.addEventListener('change', (e) => renderRegionDetail(e.target.value));
     document.getElementById('metricSelect').addEventListener('change', (e) => {
       currentMetric = e.target.value;
-      updateMapStyle();
+      updateSvgColors();
     });
     document.querySelectorAll('.month-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -244,16 +336,15 @@
     document.querySelectorAll('.pilot-jump-btn').forEach(btn => {
       btn.addEventListener('click', () => renderRegionDetail(btn.dataset.code));
     });
-
     document.querySelectorAll('.month-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.month === state.monthKey);
     });
 
     renderNationalKPIs();
-    initMap(geoData);
+    buildNativeSvgMap(geoData);
     renderRegionDetail(regions[state.regionCode] ? state.regionCode : '43800');
   } catch (err) {
-    document.getElementById('mapStatus').textContent = `데이터 로딩 오류: ${err.message}`;
+    document.getElementById('mapStatus').textContent = `데이터 로딩 오류: ${err.message} (저장소에 data/ 폴더가 정상 업로드되었는지 확인하세요)`;
     console.error(err);
   }
 })();
