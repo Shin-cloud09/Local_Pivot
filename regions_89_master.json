@@ -1,0 +1,3028 @@
+{
+  "26140": {
+    "adm_cd": "26140",
+    "sido_name": "부산광역시",
+    "sigungu_name": "서구",
+    "full_name": "부산광역시 서구",
+    "extinction_index": 0.3796,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 46022,
+    "unoccupied_housing": 5637,
+    "unoccupied_rate": 12.25,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 101320,
+        "stay_pop": 424271,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 9.9,
+        "spend_per_person": 173000
+      },
+      "202606": {
+        "resident_pop": 101216,
+        "stay_pop": 369023,
+        "stay_ratio": 3.5,
+        "avg_stay_hours": 10.0,
+        "spend_per_person": 189000
+      },
+      "avg": {
+        "resident_pop": 101268,
+        "stay_pop": 396647,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 9.95,
+        "spend_per_person": 181000
+      }
+    }
+  },
+  "26170": {
+    "adm_cd": "26170",
+    "sido_name": "부산광역시",
+    "sigungu_name": "동구",
+    "full_name": "부산광역시 동구",
+    "extinction_index": 0.3946,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 36664,
+    "unoccupied_housing": 5745,
+    "unoccupied_rate": 15.67,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 83432,
+        "stay_pop": 675013,
+        "stay_ratio": 7.9,
+        "avg_stay_hours": 9.1,
+        "spend_per_person": 109000
+      },
+      "202606": {
+        "resident_pop": 83354,
+        "stay_pop": 604159,
+        "stay_ratio": 7.0,
+        "avg_stay_hours": 9.1,
+        "spend_per_person": 112000
+      },
+      "avg": {
+        "resident_pop": 83393,
+        "stay_pop": 639586,
+        "stay_ratio": 7.45,
+        "avg_stay_hours": 9.1,
+        "spend_per_person": 110500
+      }
+    }
+  },
+  "26200": {
+    "adm_cd": "26200",
+    "sido_name": "부산광역시",
+    "sigungu_name": "영도구",
+    "full_name": "부산광역시 영도구",
+    "extinction_index": 0.2564,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 50018,
+    "unoccupied_housing": 7712,
+    "unoccupied_rate": 15.42,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 100748,
+        "stay_pop": 384720,
+        "stay_ratio": 3.7,
+        "avg_stay_hours": 10.4,
+        "spend_per_person": 80000
+      },
+      "202606": {
+        "resident_pop": 100570,
+        "stay_pop": 310726,
+        "stay_ratio": 3.0,
+        "avg_stay_hours": 10.7,
+        "spend_per_person": 83000
+      },
+      "avg": {
+        "resident_pop": 100659,
+        "stay_pop": 347723,
+        "stay_ratio": 3.35,
+        "avg_stay_hours": 10.55,
+        "spend_per_person": 81500
+      }
+    }
+  },
+  "27170": {
+    "adm_cd": "27170",
+    "sido_name": "대구광역시",
+    "sigungu_name": "서구",
+    "full_name": "대구광역시 서구",
+    "extinction_index": 0.3659,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 63126,
+    "unoccupied_housing": 6093,
+    "unoccupied_rate": 9.65,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 163748,
+        "stay_pop": 405280,
+        "stay_ratio": 2.4,
+        "avg_stay_hours": 10.1,
+        "spend_per_person": 161000
+      },
+      "202606": {
+        "resident_pop": 163508,
+        "stay_pop": 363978,
+        "stay_ratio": 2.2,
+        "avg_stay_hours": 10.1,
+        "spend_per_person": 165000
+      },
+      "avg": {
+        "resident_pop": 163628,
+        "stay_pop": 384629,
+        "stay_ratio": 2.3,
+        "avg_stay_hours": 10.1,
+        "spend_per_person": 163000
+      }
+    }
+  },
+  "27200": {
+    "adm_cd": "27200",
+    "sido_name": "대구광역시",
+    "sigungu_name": "남구",
+    "full_name": "대구광역시 남구",
+    "extinction_index": 0.4505,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 47049,
+    "unoccupied_housing": 3643,
+    "unoccupied_rate": 7.74,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 140620,
+        "stay_pop": 487274,
+        "stay_ratio": 3.4,
+        "avg_stay_hours": 10.3,
+        "spend_per_person": 148000
+      },
+      "202606": {
+        "resident_pop": 141344,
+        "stay_pop": 437078,
+        "stay_ratio": 3.0,
+        "avg_stay_hours": 10.4,
+        "spend_per_person": 154000
+      },
+      "avg": {
+        "resident_pop": 140982,
+        "stay_pop": 462176,
+        "stay_ratio": 3.2,
+        "avg_stay_hours": 10.35,
+        "spend_per_person": 151000
+      }
+    }
+  },
+  "27720": {
+    "adm_cd": "27720",
+    "sido_name": "대구광역시",
+    "sigungu_name": "군위군",
+    "full_name": "대구광역시 군위군",
+    "extinction_index": 0.0877,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 11083,
+    "unoccupied_housing": 1355,
+    "unoccupied_rate": 12.23,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 22674,
+        "stay_pop": 211625,
+        "stay_ratio": 9.1,
+        "avg_stay_hours": 9.6,
+        "spend_per_person": 115000
+      },
+      "202606": {
+        "resident_pop": 22622,
+        "stay_pop": 166446,
+        "stay_ratio": 7.1,
+        "avg_stay_hours": 9.8,
+        "spend_per_person": 126000
+      },
+      "avg": {
+        "resident_pop": 22648,
+        "stay_pop": 189036,
+        "stay_ratio": 8.1,
+        "avg_stay_hours": 9.7,
+        "spend_per_person": 120500
+      }
+    }
+  },
+  "28710": {
+    "adm_cd": "28710",
+    "sido_name": "인천광역시",
+    "sigungu_name": "강화군",
+    "full_name": "인천광역시 강화군",
+    "extinction_index": 0.1626,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 33288,
+    "unoccupied_housing": 5639,
+    "unoccupied_rate": 16.94,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 69689,
+        "stay_pop": 726045,
+        "stay_ratio": 10.2,
+        "avg_stay_hours": 11.0,
+        "spend_per_person": 88000
+      },
+      "202606": {
+        "resident_pop": 69681,
+        "stay_pop": 520176,
+        "stay_ratio": 7.3,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 90000
+      },
+      "avg": {
+        "resident_pop": 69685,
+        "stay_pop": 623110,
+        "stay_ratio": 8.75,
+        "avg_stay_hours": 11.1,
+        "spend_per_person": 89000
+      }
+    }
+  },
+  "28720": {
+    "adm_cd": "28720",
+    "sido_name": "인천광역시",
+    "sigungu_name": "옹진군",
+    "full_name": "인천광역시 옹진군",
+    "extinction_index": 0.194,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 8614,
+    "unoccupied_housing": 1127,
+    "unoccupied_rate": 13.08,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 19376,
+        "stay_pop": 305833,
+        "stay_ratio": 15.3,
+        "avg_stay_hours": 12.7,
+        "spend_per_person": 91000
+      },
+      "202606": {
+        "resident_pop": 19340,
+        "stay_pop": 254778,
+        "stay_ratio": 12.8,
+        "avg_stay_hours": 12.8,
+        "spend_per_person": 92000
+      },
+      "avg": {
+        "resident_pop": 19358,
+        "stay_pop": 280306,
+        "stay_ratio": 14.05,
+        "avg_stay_hours": 12.75,
+        "spend_per_person": 91500
+      }
+    }
+  },
+  "41800": {
+    "adm_cd": "41800",
+    "sido_name": "경기도",
+    "sigungu_name": "연천군",
+    "full_name": "경기도 연천군",
+    "extinction_index": 0.2464,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 18789,
+    "unoccupied_housing": 1624,
+    "unoccupied_rate": 8.64,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 42868,
+        "stay_pop": 286633,
+        "stay_ratio": 6.4,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 98000
+      },
+      "202606": {
+        "resident_pop": 42977,
+        "stay_pop": 202044,
+        "stay_ratio": 4.5,
+        "avg_stay_hours": 13.0,
+        "spend_per_person": 109000
+      },
+      "avg": {
+        "resident_pop": 42922,
+        "stay_pop": 244338,
+        "stay_ratio": 5.45,
+        "avg_stay_hours": 12.8,
+        "spend_per_person": 103500
+      }
+    }
+  },
+  "41820": {
+    "adm_cd": "41820",
+    "sido_name": "경기도",
+    "sigungu_name": "가평군",
+    "full_name": "경기도 가평군",
+    "extinction_index": 0.2556,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 29910,
+    "unoccupied_housing": 5446,
+    "unoccupied_rate": 18.21,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 62044,
+        "stay_pop": 997851,
+        "stay_ratio": 15.6,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 111000
+      },
+      "202606": {
+        "resident_pop": 62041,
+        "stay_pop": 819339,
+        "stay_ratio": 12.8,
+        "avg_stay_hours": 11.8,
+        "spend_per_person": 111000
+      },
+      "avg": {
+        "resident_pop": 62042,
+        "stay_pop": 908595,
+        "stay_ratio": 14.2,
+        "avg_stay_hours": 11.7,
+        "spend_per_person": 111000
+      }
+    }
+  },
+  "43150": {
+    "adm_cd": "43150",
+    "sido_name": "충청북도",
+    "sigungu_name": "제천시",
+    "full_name": "충청북도 제천시",
+    "extinction_index": 0.3336,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 60385,
+    "unoccupied_housing": 7501,
+    "unoccupied_rate": 12.42,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 128306,
+        "stay_pop": 508735,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 170000
+      },
+      "202606": {
+        "resident_pop": 128192,
+        "stay_pop": 406049,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 12.8,
+        "spend_per_person": 188000
+      },
+      "avg": {
+        "resident_pop": 128249,
+        "stay_pop": 457392,
+        "stay_ratio": 3.45,
+        "avg_stay_hours": 12.7,
+        "spend_per_person": 179000
+      }
+    }
+  },
+  "43720": {
+    "adm_cd": "43720",
+    "sido_name": "충청북도",
+    "sigungu_name": "보은군",
+    "full_name": "충청북도 보은군",
+    "extinction_index": 0.1306,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 15931,
+    "unoccupied_housing": 2629,
+    "unoccupied_rate": 16.5,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 30716,
+        "stay_pop": 221807,
+        "stay_ratio": 6.9,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 99000
+      },
+      "202606": {
+        "resident_pop": 31181,
+        "stay_pop": 169516,
+        "stay_ratio": 5.2,
+        "avg_stay_hours": 11.7,
+        "spend_per_person": 107000
+      },
+      "avg": {
+        "resident_pop": 30948,
+        "stay_pop": 195662,
+        "stay_ratio": 6.05,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 103000
+      }
+    }
+  },
+  "43730": {
+    "adm_cd": "43730",
+    "sido_name": "충청북도",
+    "sigungu_name": "옥천군",
+    "full_name": "충청북도 옥천군",
+    "extinction_index": 0.1809,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 23871,
+    "unoccupied_housing": 3273,
+    "unoccupied_rate": 13.71,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 50423,
+        "stay_pop": 252620,
+        "stay_ratio": 4.8,
+        "avg_stay_hours": 10.2,
+        "spend_per_person": 106000
+      },
+      "202606": {
+        "resident_pop": 50547,
+        "stay_pop": 199619,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 10.3,
+        "spend_per_person": 114000
+      },
+      "avg": {
+        "resident_pop": 50485,
+        "stay_pop": 226120,
+        "stay_ratio": 4.3,
+        "avg_stay_hours": 10.25,
+        "spend_per_person": 110000
+      }
+    }
+  },
+  "43740": {
+    "adm_cd": "43740",
+    "sido_name": "충청북도",
+    "sigungu_name": "영동군",
+    "full_name": "충청북도 영동군",
+    "extinction_index": 0.1569,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 22035,
+    "unoccupied_housing": 3150,
+    "unoccupied_rate": 14.3,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 43031,
+        "stay_pop": 178553,
+        "stay_ratio": 4.0,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 125000
+      },
+      "202606": {
+        "resident_pop": 43011,
+        "stay_pop": 159321,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 12.5,
+        "spend_per_person": 129000
+      },
+      "avg": {
+        "resident_pop": 43021,
+        "stay_pop": 168937,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.45,
+        "spend_per_person": 127000
+      }
+    }
+  },
+  "43760": {
+    "adm_cd": "43760",
+    "sido_name": "충청북도",
+    "sigungu_name": "괴산군",
+    "full_name": "충청북도 괴산군",
+    "extinction_index": 0.1159,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 17445,
+    "unoccupied_housing": 1504,
+    "unoccupied_rate": 8.62,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 37428,
+        "stay_pop": 308593,
+        "stay_ratio": 7.9,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 95000
+      },
+      "202606": {
+        "resident_pop": 37415,
+        "stay_pop": 269259,
+        "stay_ratio": 6.8,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 99000
+      },
+      "avg": {
+        "resident_pop": 37422,
+        "stay_pop": 288926,
+        "stay_ratio": 7.35,
+        "avg_stay_hours": 11.35,
+        "spend_per_person": 97000
+      }
+    }
+  },
+  "43800": {
+    "adm_cd": "43800",
+    "sido_name": "충청북도",
+    "sigungu_name": "단양군",
+    "full_name": "충청북도 단양군",
+    "extinction_index": 0.1461,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 14464,
+    "unoccupied_housing": 2339,
+    "unoccupied_rate": 16.17,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 26623,
+        "stay_pop": 332252,
+        "stay_ratio": 12.3,
+        "avg_stay_hours": 11.1,
+        "spend_per_person": 103000
+      },
+      "202606": {
+        "resident_pop": 26628,
+        "stay_pop": 238228,
+        "stay_ratio": 8.7,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 114000
+      },
+      "avg": {
+        "resident_pop": 26626,
+        "stay_pop": 285240,
+        "stay_ratio": 10.5,
+        "avg_stay_hours": 11.25,
+        "spend_per_person": 108500
+      }
+    }
+  },
+  "44150": {
+    "adm_cd": "44150",
+    "sido_name": "충청남도",
+    "sigungu_name": "공주시",
+    "full_name": "충청남도 공주시",
+    "extinction_index": 0.2884,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 47088,
+    "unoccupied_housing": 5992,
+    "unoccupied_rate": 12.73,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 99841,
+        "stay_pop": 701076,
+        "stay_ratio": 6.8,
+        "avg_stay_hours": 11.0,
+        "spend_per_person": 109000
+      },
+      "202606": {
+        "resident_pop": 99757,
+        "stay_pop": 605879,
+        "stay_ratio": 5.9,
+        "avg_stay_hours": 11.1,
+        "spend_per_person": 111000
+      },
+      "avg": {
+        "resident_pop": 99799,
+        "stay_pop": 653478,
+        "stay_ratio": 6.35,
+        "avg_stay_hours": 11.05,
+        "spend_per_person": 110000
+      }
+    }
+  },
+  "44180": {
+    "adm_cd": "44180",
+    "sido_name": "충청남도",
+    "sigungu_name": "보령시",
+    "full_name": "충청남도 보령시",
+    "extinction_index": 0.2359,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 45980,
+    "unoccupied_housing": 6301,
+    "unoccupied_rate": 13.7,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 91353,
+        "stay_pop": 654041,
+        "stay_ratio": 6.8,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 122000
+      },
+      "202606": {
+        "resident_pop": 91260,
+        "stay_pop": 467994,
+        "stay_ratio": 4.9,
+        "avg_stay_hours": 12.8,
+        "spend_per_person": 123000
+      },
+      "avg": {
+        "resident_pop": 91306,
+        "stay_pop": 561018,
+        "stay_ratio": 5.85,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 122500
+      }
+    }
+  },
+  "44230": {
+    "adm_cd": "44230",
+    "sido_name": "충청남도",
+    "sigungu_name": "논산시",
+    "full_name": "충청남도 논산시",
+    "extinction_index": 0.2488,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 49308,
+    "unoccupied_housing": 6230,
+    "unoccupied_rate": 12.63,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 106094,
+        "stay_pop": 433631,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.8,
+        "spend_per_person": 152000
+      },
+      "202606": {
+        "resident_pop": 105977,
+        "stay_pop": 366040,
+        "stay_ratio": 3.2,
+        "avg_stay_hours": 13.0,
+        "spend_per_person": 159000
+      },
+      "avg": {
+        "resident_pop": 106036,
+        "stay_pop": 399836,
+        "stay_ratio": 3.5,
+        "avg_stay_hours": 12.9,
+        "spend_per_person": 155500
+      }
+    }
+  },
+  "44710": {
+    "adm_cd": "44710",
+    "sido_name": "충청남도",
+    "sigungu_name": "금산군",
+    "full_name": "충청남도 금산군",
+    "extinction_index": 0.1621,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 24300,
+    "unoccupied_housing": 3559,
+    "unoccupied_rate": 14.65,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 48975,
+        "stay_pop": 255963,
+        "stay_ratio": 4.9,
+        "avg_stay_hours": 10.7,
+        "spend_per_person": 118000
+      },
+      "202606": {
+        "resident_pop": 48939,
+        "stay_pop": 207248,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 10.9,
+        "spend_per_person": 123000
+      },
+      "avg": {
+        "resident_pop": 48957,
+        "stay_pop": 231606,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 120500
+      }
+    }
+  },
+  "44760": {
+    "adm_cd": "44760",
+    "sido_name": "충청남도",
+    "sigungu_name": "부여군",
+    "full_name": "충청남도 부여군",
+    "extinction_index": 0.1411,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 29159,
+    "unoccupied_housing": 3477,
+    "unoccupied_rate": 11.92,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 57822,
+        "stay_pop": 309666,
+        "stay_ratio": 5.1,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 140000
+      },
+      "202606": {
+        "resident_pop": 57762,
+        "stay_pop": 228063,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 144000
+      },
+      "avg": {
+        "resident_pop": 57792,
+        "stay_pop": 268864,
+        "stay_ratio": 4.45,
+        "avg_stay_hours": 11.75,
+        "spend_per_person": 142000
+      }
+    }
+  },
+  "44770": {
+    "adm_cd": "44770",
+    "sido_name": "충청남도",
+    "sigungu_name": "서천군",
+    "full_name": "충청남도 서천군",
+    "extinction_index": 0.1294,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 26181,
+    "unoccupied_housing": 4986,
+    "unoccupied_rate": 19.04,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 46844,
+        "stay_pop": 315972,
+        "stay_ratio": 6.5,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 95000
+      },
+      "202606": {
+        "resident_pop": 46761,
+        "stay_pop": 205164,
+        "stay_ratio": 4.2,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 99000
+      },
+      "avg": {
+        "resident_pop": 46802,
+        "stay_pop": 260568,
+        "stay_ratio": 5.35,
+        "avg_stay_hours": 11.35,
+        "spend_per_person": 97000
+      }
+    }
+  },
+  "44790": {
+    "adm_cd": "44790",
+    "sido_name": "충청남도",
+    "sigungu_name": "청양군",
+    "full_name": "충청남도 청양군",
+    "extinction_index": 0.1471,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 14380,
+    "unoccupied_housing": 1773,
+    "unoccupied_rate": 12.33,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 30081,
+        "stay_pop": 138101,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 11.7,
+        "spend_per_person": 95000
+      },
+      "202606": {
+        "resident_pop": 30051,
+        "stay_pop": 107599,
+        "stay_ratio": 3.4,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 102000
+      },
+      "avg": {
+        "resident_pop": 30066,
+        "stay_pop": 122850,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 11.8,
+        "spend_per_person": 98500
+      }
+    }
+  },
+  "44810": {
+    "adm_cd": "44810",
+    "sido_name": "충청남도",
+    "sigungu_name": "예산군",
+    "full_name": "충청남도 예산군",
+    "extinction_index": 0.1968,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 41272,
+    "unoccupied_housing": 6500,
+    "unoccupied_rate": 15.75,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 78337,
+        "stay_pop": 432784,
+        "stay_ratio": 5.2,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 121000
+      },
+      "202606": {
+        "resident_pop": 78318,
+        "stay_pop": 328967,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 130000
+      },
+      "avg": {
+        "resident_pop": 78328,
+        "stay_pop": 380876,
+        "stay_ratio": 4.55,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 125500
+      }
+    }
+  },
+  "44825": {
+    "adm_cd": "44825",
+    "sido_name": "충청남도",
+    "sigungu_name": "태안군",
+    "full_name": "충청남도 태안군",
+    "extinction_index": 0.1572,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 30790,
+    "unoccupied_housing": 4788,
+    "unoccupied_rate": 15.55,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 59083,
+        "stay_pop": 844739,
+        "stay_ratio": 13.8,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 113000
+      },
+      "202606": {
+        "resident_pop": 59039,
+        "stay_pop": 493283,
+        "stay_ratio": 8.0,
+        "avg_stay_hours": 12.5,
+        "spend_per_person": 124000
+      },
+      "avg": {
+        "resident_pop": 59061,
+        "stay_pop": 669011,
+        "stay_ratio": 10.9,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 118500
+      }
+    }
+  },
+  "46710": {
+    "adm_cd": "46710",
+    "sido_name": "전라남도",
+    "sigungu_name": "담양군",
+    "full_name": "전라남도 담양군",
+    "extinction_index": 0.2045,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 20125,
+    "unoccupied_housing": 2778,
+    "unoccupied_rate": 13.8,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 44112,
+        "stay_pop": 478258,
+        "stay_ratio": 10.5,
+        "avg_stay_hours": 9.3,
+        "spend_per_person": 100000
+      },
+      "202606": {
+        "resident_pop": 44031,
+        "stay_pop": 332555,
+        "stay_ratio": 7.3,
+        "avg_stay_hours": 9.7,
+        "spend_per_person": 107000
+      },
+      "avg": {
+        "resident_pop": 44072,
+        "stay_pop": 405406,
+        "stay_ratio": 8.9,
+        "avg_stay_hours": 9.5,
+        "spend_per_person": 103500
+      }
+    }
+  },
+  "46720": {
+    "adm_cd": "46720",
+    "sido_name": "전라남도",
+    "sigungu_name": "곡성군",
+    "full_name": "전라남도 곡성군",
+    "extinction_index": 0.1492,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 13896,
+    "unoccupied_housing": 2216,
+    "unoccupied_rate": 15.95,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 27643,
+        "stay_pop": 346702,
+        "stay_ratio": 12.2,
+        "avg_stay_hours": 9.1,
+        "spend_per_person": 78000
+      },
+      "202606": {
+        "resident_pop": 27657,
+        "stay_pop": 128968,
+        "stay_ratio": 4.5,
+        "avg_stay_hours": 10.7,
+        "spend_per_person": 116000
+      },
+      "avg": {
+        "resident_pop": 27650,
+        "stay_pop": 237835,
+        "stay_ratio": 8.35,
+        "avg_stay_hours": 9.9,
+        "spend_per_person": 97000
+      }
+    }
+  },
+  "46730": {
+    "adm_cd": "46730",
+    "sido_name": "전라남도",
+    "sigungu_name": "구례군",
+    "full_name": "전라남도 구례군",
+    "extinction_index": 0.1431,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 12654,
+    "unoccupied_housing": 2336,
+    "unoccupied_rate": 18.46,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 23995,
+        "stay_pop": 204537,
+        "stay_ratio": 8.4,
+        "avg_stay_hours": 11.0,
+        "spend_per_person": 84000
+      },
+      "202606": {
+        "resident_pop": 24337,
+        "stay_pop": 133922,
+        "stay_ratio": 5.4,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 86000
+      },
+      "avg": {
+        "resident_pop": 24166,
+        "stay_pop": 169230,
+        "stay_ratio": 6.9,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 85000
+      }
+    }
+  },
+  "46770": {
+    "adm_cd": "46770",
+    "sido_name": "전라남도",
+    "sigungu_name": "고흥군",
+    "full_name": "전라남도 고흥군",
+    "extinction_index": 0.1043,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 35171,
+    "unoccupied_housing": 6695,
+    "unoccupied_rate": 19.04,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 59047,
+        "stay_pop": 257847,
+        "stay_ratio": 4.2,
+        "avg_stay_hours": 12.9,
+        "spend_per_person": 103000
+      },
+      "202606": {
+        "resident_pop": 58976,
+        "stay_pop": 181527,
+        "stay_ratio": 3.0,
+        "avg_stay_hours": 13.1,
+        "spend_per_person": 106000
+      },
+      "avg": {
+        "resident_pop": 59012,
+        "stay_pop": 219687,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 13.0,
+        "spend_per_person": 104500
+      }
+    }
+  },
+  "46780": {
+    "adm_cd": "46780",
+    "sido_name": "전라남도",
+    "sigungu_name": "보성군",
+    "full_name": "전라남도 보성군",
+    "extinction_index": 0.1184,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 19577,
+    "unoccupied_housing": 2816,
+    "unoccupied_rate": 14.38,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 36691,
+        "stay_pop": 257513,
+        "stay_ratio": 6.8,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 102000
+      },
+      "202606": {
+        "resident_pop": 37559,
+        "stay_pop": 182218,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 10.9,
+        "spend_per_person": 105000
+      },
+      "avg": {
+        "resident_pop": 37125,
+        "stay_pop": 219866,
+        "stay_ratio": 5.75,
+        "avg_stay_hours": 10.85,
+        "spend_per_person": 103500
+      }
+    }
+  },
+  "46790": {
+    "adm_cd": "46790",
+    "sido_name": "전라남도",
+    "sigungu_name": "화순군",
+    "full_name": "전라남도 화순군",
+    "extinction_index": 0.2735,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 30181,
+    "unoccupied_housing": 5274,
+    "unoccupied_rate": 17.47,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 60008,
+        "stay_pop": 325606,
+        "stay_ratio": 5.3,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 175000
+      },
+      "202606": {
+        "resident_pop": 59909,
+        "stay_pop": 271485,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 10.9,
+        "spend_per_person": 186000
+      },
+      "avg": {
+        "resident_pop": 59958,
+        "stay_pop": 298546,
+        "stay_ratio": 4.85,
+        "avg_stay_hours": 10.85,
+        "spend_per_person": 180500
+      }
+    }
+  },
+  "46800": {
+    "adm_cd": "46800",
+    "sido_name": "전라남도",
+    "sigungu_name": "장흥군",
+    "full_name": "전라남도 장흥군",
+    "extinction_index": 0.1565,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 18311,
+    "unoccupied_housing": 3046,
+    "unoccupied_rate": 16.63,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 34006,
+        "stay_pop": 142132,
+        "stay_ratio": 4.0,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 133000
+      },
+      "202606": {
+        "resident_pop": 33952,
+        "stay_pop": 109270,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 135000
+      },
+      "avg": {
+        "resident_pop": 33979,
+        "stay_pop": 125701,
+        "stay_ratio": 3.55,
+        "avg_stay_hours": 12.5,
+        "spend_per_person": 134000
+      }
+    }
+  },
+  "46810": {
+    "adm_cd": "46810",
+    "sido_name": "전라남도",
+    "sigungu_name": "강진군",
+    "full_name": "전라남도 강진군",
+    "extinction_index": 0.1593,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 17545,
+    "unoccupied_housing": 3513,
+    "unoccupied_rate": 20.02,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 31746,
+        "stay_pop": 162113,
+        "stay_ratio": 5.0,
+        "avg_stay_hours": 12.0,
+        "spend_per_person": 129000
+      },
+      "202606": {
+        "resident_pop": 31666,
+        "stay_pop": 123685,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 125000
+      },
+      "avg": {
+        "resident_pop": 31706,
+        "stay_pop": 142899,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 12.1,
+        "spend_per_person": 127000
+      }
+    }
+  },
+  "46820": {
+    "adm_cd": "46820",
+    "sido_name": "전라남도",
+    "sigungu_name": "해남군",
+    "full_name": "전라남도 해남군",
+    "extinction_index": 0.1607,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 31184,
+    "unoccupied_housing": 4325,
+    "unoccupied_rate": 13.87,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 62086,
+        "stay_pop": 266157,
+        "stay_ratio": 4.0,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 141000
+      },
+      "202606": {
+        "resident_pop": 62027,
+        "stay_pop": 205708,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 151000
+      },
+      "avg": {
+        "resident_pop": 62056,
+        "stay_pop": 235932,
+        "stay_ratio": 3.55,
+        "avg_stay_hours": 12.3,
+        "spend_per_person": 146000
+      }
+    }
+  },
+  "46830": {
+    "adm_cd": "46830",
+    "sido_name": "전라남도",
+    "sigungu_name": "영암군",
+    "full_name": "전라남도 영암군",
+    "extinction_index": 0.2406,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 28337,
+    "unoccupied_housing": 4799,
+    "unoccupied_rate": 16.94,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 50069,
+        "stay_pop": 235772,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 162000
+      },
+      "202606": {
+        "resident_pop": 50076,
+        "stay_pop": 202342,
+        "stay_ratio": 3.3,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 164000
+      },
+      "avg": {
+        "resident_pop": 50072,
+        "stay_pop": 219057,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 163000
+      }
+    }
+  },
+  "46860": {
+    "adm_cd": "46860",
+    "sido_name": "전라남도",
+    "sigungu_name": "함평군",
+    "full_name": "전라남도 함평군",
+    "extinction_index": 0.1336,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 15116,
+    "unoccupied_housing": 2586,
+    "unoccupied_rate": 17.11,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 29490,
+        "stay_pop": 225862,
+        "stay_ratio": 7.3,
+        "avg_stay_hours": 10.2,
+        "spend_per_person": 115000
+      },
+      "202606": {
+        "resident_pop": 29601,
+        "stay_pop": 125902,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 11.0,
+        "spend_per_person": 141000
+      },
+      "avg": {
+        "resident_pop": 29546,
+        "stay_pop": 175882,
+        "stay_ratio": 5.7,
+        "avg_stay_hours": 10.6,
+        "spend_per_person": 128000
+      }
+    }
+  },
+  "46870": {
+    "adm_cd": "46870",
+    "sido_name": "전라남도",
+    "sigungu_name": "영광군",
+    "full_name": "전라남도 영광군",
+    "extinction_index": 0.25,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 24159,
+    "unoccupied_housing": 3124,
+    "unoccupied_rate": 12.93,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 53933,
+        "stay_pop": 198571,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 126000
+      },
+      "202606": {
+        "resident_pop": 53902,
+        "stay_pop": 155426,
+        "stay_ratio": 2.8,
+        "avg_stay_hours": 12.3,
+        "spend_per_person": 131000
+      },
+      "avg": {
+        "resident_pop": 53918,
+        "stay_pop": 176998,
+        "stay_ratio": 3.2,
+        "avg_stay_hours": 12.25,
+        "spend_per_person": 128500
+      }
+    }
+  },
+  "46880": {
+    "adm_cd": "46880",
+    "sido_name": "전라남도",
+    "sigungu_name": "장성군",
+    "full_name": "전라남도 장성군",
+    "extinction_index": 0.2021,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 20597,
+    "unoccupied_housing": 3748,
+    "unoccupied_rate": 18.2,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 43009,
+        "stay_pop": 274911,
+        "stay_ratio": 6.2,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 133000
+      },
+      "202606": {
+        "resident_pop": 43095,
+        "stay_pop": 214582,
+        "stay_ratio": 4.8,
+        "avg_stay_hours": 11.1,
+        "spend_per_person": 144000
+      },
+      "avg": {
+        "resident_pop": 43052,
+        "stay_pop": 244746,
+        "stay_ratio": 5.5,
+        "avg_stay_hours": 10.95,
+        "spend_per_person": 138500
+      }
+    }
+  },
+  "46890": {
+    "adm_cd": "46890",
+    "sido_name": "전라남도",
+    "sigungu_name": "완도군",
+    "full_name": "전라남도 완도군",
+    "extinction_index": 0.1574,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 22717,
+    "unoccupied_housing": 3579,
+    "unoccupied_rate": 15.75,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 44238,
+        "stay_pop": 187501,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 13.2,
+        "spend_per_person": 103000
+      },
+      "202606": {
+        "resident_pop": 44175,
+        "stay_pop": 127165,
+        "stay_ratio": 2.6,
+        "avg_stay_hours": 13.4,
+        "spend_per_person": 107000
+      },
+      "avg": {
+        "resident_pop": 44206,
+        "stay_pop": 157333,
+        "stay_ratio": 3.25,
+        "avg_stay_hours": 13.3,
+        "spend_per_person": 105000
+      }
+    }
+  },
+  "46900": {
+    "adm_cd": "46900",
+    "sido_name": "전라남도",
+    "sigungu_name": "진도군",
+    "full_name": "전라남도 진도군",
+    "extinction_index": 0.1672,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 14246,
+    "unoccupied_housing": 1712,
+    "unoccupied_rate": 12.02,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 27884,
+        "stay_pop": 130552,
+        "stay_ratio": 4.3,
+        "avg_stay_hours": 13.2,
+        "spend_per_person": 115000
+      },
+      "202606": {
+        "resident_pop": 27882,
+        "stay_pop": 94858,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 13.5,
+        "spend_per_person": 118000
+      },
+      "avg": {
+        "resident_pop": 27883,
+        "stay_pop": 112705,
+        "stay_ratio": 3.7,
+        "avg_stay_hours": 13.35,
+        "spend_per_person": 116500
+      }
+    }
+  },
+  "46910": {
+    "adm_cd": "46910",
+    "sido_name": "전라남도",
+    "sigungu_name": "신안군",
+    "full_name": "전라남도 신안군",
+    "extinction_index": 0.121,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 16637,
+    "unoccupied_housing": 1048,
+    "unoccupied_rate": 6.3,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 42207,
+        "stay_pop": 210783,
+        "stay_ratio": 4.8,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 90000
+      },
+      "202606": {
+        "resident_pop": 42319,
+        "stay_pop": 146042,
+        "stay_ratio": 3.3,
+        "avg_stay_hours": 13.0,
+        "spend_per_person": 96000
+      },
+      "avg": {
+        "resident_pop": 42263,
+        "stay_pop": 178412,
+        "stay_ratio": 4.05,
+        "avg_stay_hours": 12.8,
+        "spend_per_person": 93000
+      }
+    }
+  },
+  "47170": {
+    "adm_cd": "47170",
+    "sido_name": "경상북도",
+    "sigungu_name": "안동시",
+    "full_name": "경상북도 안동시",
+    "extinction_index": 0.3115,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 71121,
+    "unoccupied_housing": 9238,
+    "unoccupied_rate": 12.99,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 152246,
+        "stay_pop": 491219,
+        "stay_ratio": 3.2,
+        "avg_stay_hours": 12.9,
+        "spend_per_person": 171000
+      },
+      "202606": {
+        "resident_pop": 151864,
+        "stay_pop": 366753,
+        "stay_ratio": 2.4,
+        "avg_stay_hours": 13.1,
+        "spend_per_person": 187000
+      },
+      "avg": {
+        "resident_pop": 152055,
+        "stay_pop": 428986,
+        "stay_ratio": 2.8,
+        "avg_stay_hours": 13.0,
+        "spend_per_person": 179000
+      }
+    }
+  },
+  "47210": {
+    "adm_cd": "47210",
+    "sido_name": "경상북도",
+    "sigungu_name": "영주시",
+    "full_name": "경상북도 영주시",
+    "extinction_index": 0.2311,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 43366,
+    "unoccupied_housing": 4486,
+    "unoccupied_rate": 10.34,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 96511,
+        "stay_pop": 246395,
+        "stay_ratio": 2.5,
+        "avg_stay_hours": 13.6,
+        "spend_per_person": 150000
+      },
+      "202606": {
+        "resident_pop": 96440,
+        "stay_pop": 174866,
+        "stay_ratio": 1.8,
+        "avg_stay_hours": 13.9,
+        "spend_per_person": 168000
+      },
+      "avg": {
+        "resident_pop": 96476,
+        "stay_pop": 210630,
+        "stay_ratio": 2.15,
+        "avg_stay_hours": 13.75,
+        "spend_per_person": 159000
+      }
+    }
+  },
+  "47230": {
+    "adm_cd": "47230",
+    "sido_name": "경상북도",
+    "sigungu_name": "영천시",
+    "full_name": "경상북도 영천시",
+    "extinction_index": 0.2221,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 45976,
+    "unoccupied_housing": 5594,
+    "unoccupied_rate": 12.17,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 94331,
+        "stay_pop": 403295,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 144000
+      },
+      "202606": {
+        "resident_pop": 94107,
+        "stay_pop": 308344,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 160000
+      },
+      "avg": {
+        "resident_pop": 94219,
+        "stay_pop": 355820,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 11.45,
+        "spend_per_person": 152000
+      }
+    }
+  },
+  "47250": {
+    "adm_cd": "47250",
+    "sido_name": "경상북도",
+    "sigungu_name": "상주시",
+    "full_name": "경상북도 상주시",
+    "extinction_index": 0.1757,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 44444,
+    "unoccupied_housing": 6077,
+    "unoccupied_rate": 13.67,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 89382,
+        "stay_pop": 328894,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 133000
+      },
+      "202606": {
+        "resident_pop": 89228,
+        "stay_pop": 267775,
+        "stay_ratio": 2.9,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 139000
+      },
+      "avg": {
+        "resident_pop": 89305,
+        "stay_pop": 298334,
+        "stay_ratio": 3.25,
+        "avg_stay_hours": 12.5,
+        "spend_per_person": 136000
+      }
+    }
+  },
+  "47280": {
+    "adm_cd": "47280",
+    "sido_name": "경상북도",
+    "sigungu_name": "문경시",
+    "full_name": "경상북도 문경시",
+    "extinction_index": 0.1923,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 30956,
+    "unoccupied_housing": 4111,
+    "unoccupied_rate": 13.28,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 64792,
+        "stay_pop": 387032,
+        "stay_ratio": 5.8,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 117000
+      },
+      "202606": {
+        "resident_pop": 64774,
+        "stay_pop": 268063,
+        "stay_ratio": 4.0,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 129000
+      },
+      "avg": {
+        "resident_pop": 64783,
+        "stay_pop": 327548,
+        "stay_ratio": 4.9,
+        "avg_stay_hours": 11.75,
+        "spend_per_person": 123000
+      }
+    }
+  },
+  "47730": {
+    "adm_cd": "47730",
+    "sido_name": "경상북도",
+    "sigungu_name": "의성군",
+    "full_name": "경상북도 의성군",
+    "extinction_index": 0.0987,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 26164,
+    "unoccupied_housing": 3906,
+    "unoccupied_rate": 14.93,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 47893,
+        "stay_pop": 186604,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.0,
+        "spend_per_person": 111000
+      },
+      "202606": {
+        "resident_pop": 47952,
+        "stay_pop": 146566,
+        "stay_ratio": 3.0,
+        "avg_stay_hours": 12.1,
+        "spend_per_person": 116000
+      },
+      "avg": {
+        "resident_pop": 47922,
+        "stay_pop": 166585,
+        "stay_ratio": 3.4,
+        "avg_stay_hours": 12.05,
+        "spend_per_person": 113500
+      }
+    }
+  },
+  "47750": {
+    "adm_cd": "47750",
+    "sido_name": "경상북도",
+    "sigungu_name": "청송군",
+    "full_name": "경상북도 청송군",
+    "extinction_index": 0.1094,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 12446,
+    "unoccupied_housing": 1620,
+    "unoccupied_rate": 13.02,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 23280,
+        "stay_pop": 120968,
+        "stay_ratio": 5.0,
+        "avg_stay_hours": 12.7,
+        "spend_per_person": 105000
+      },
+      "202606": {
+        "resident_pop": 24020,
+        "stay_pop": 94000,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 111000
+      },
+      "avg": {
+        "resident_pop": 23650,
+        "stay_pop": 107484,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 12.55,
+        "spend_per_person": 108000
+      }
+    }
+  },
+  "47760": {
+    "adm_cd": "47760",
+    "sido_name": "경상북도",
+    "sigungu_name": "영양군",
+    "full_name": "경상북도 영양군",
+    "extinction_index": 0.1149,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 8272,
+    "unoccupied_housing": 1016,
+    "unoccupied_rate": 12.28,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 15969,
+        "stay_pop": 66454,
+        "stay_ratio": 4.0,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 80000
+      },
+      "202606": {
+        "resident_pop": 15972,
+        "stay_pop": 48013,
+        "stay_ratio": 2.9,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 96000
+      },
+      "avg": {
+        "resident_pop": 15970,
+        "stay_pop": 57234,
+        "stay_ratio": 3.45,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 88000
+      }
+    }
+  },
+  "47770": {
+    "adm_cd": "47770",
+    "sido_name": "경상북도",
+    "sigungu_name": "영덕군",
+    "full_name": "경상북도 영덕군",
+    "extinction_index": 0.117,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 17746,
+    "unoccupied_housing": 2694,
+    "unoccupied_rate": 15.18,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 32525,
+        "stay_pop": 301614,
+        "stay_ratio": 9.0,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 126000
+      },
+      "202606": {
+        "resident_pop": 32560,
+        "stay_pop": 242465,
+        "stay_ratio": 7.2,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 124000
+      },
+      "avg": {
+        "resident_pop": 32542,
+        "stay_pop": 272040,
+        "stay_ratio": 8.1,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 125000
+      }
+    }
+  },
+  "47820": {
+    "adm_cd": "47820",
+    "sido_name": "경상북도",
+    "sigungu_name": "청도군",
+    "full_name": "경상북도 청도군",
+    "extinction_index": 0.1098,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 22015,
+    "unoccupied_housing": 4409,
+    "unoccupied_rate": 20.03,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 40058,
+        "stay_pop": 353721,
+        "stay_ratio": 8.6,
+        "avg_stay_hours": 10.7,
+        "spend_per_person": 94000
+      },
+      "202606": {
+        "resident_pop": 40021,
+        "stay_pop": 270613,
+        "stay_ratio": 6.6,
+        "avg_stay_hours": 10.9,
+        "spend_per_person": 97000
+      },
+      "avg": {
+        "resident_pop": 40040,
+        "stay_pop": 312167,
+        "stay_ratio": 7.6,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 95500
+      }
+    }
+  },
+  "47830": {
+    "adm_cd": "47830",
+    "sido_name": "경상북도",
+    "sigungu_name": "고령군",
+    "full_name": "경상북도 고령군",
+    "extinction_index": 0.1513,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 14582,
+    "unoccupied_housing": 2026,
+    "unoccupied_rate": 13.89,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 29581,
+        "stay_pop": 169889,
+        "stay_ratio": 5.3,
+        "avg_stay_hours": 10.3,
+        "spend_per_person": 122000
+      },
+      "202606": {
+        "resident_pop": 29545,
+        "stay_pop": 142135,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 10.4,
+        "spend_per_person": 128000
+      },
+      "avg": {
+        "resident_pop": 29563,
+        "stay_pop": 156012,
+        "stay_ratio": 4.85,
+        "avg_stay_hours": 10.35,
+        "spend_per_person": 125000
+      }
+    }
+  },
+  "47840": {
+    "adm_cd": "47840",
+    "sido_name": "경상북도",
+    "sigungu_name": "성주군",
+    "full_name": "경상북도 성주군",
+    "extinction_index": 0.143,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 17741,
+    "unoccupied_housing": 1801,
+    "unoccupied_rate": 10.15,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 40552,
+        "stay_pop": 222868,
+        "stay_ratio": 5.1,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 112000
+      },
+      "202606": {
+        "resident_pop": 40461,
+        "stay_pop": 164237,
+        "stay_ratio": 3.7,
+        "avg_stay_hours": 11.1,
+        "spend_per_person": 126000
+      },
+      "avg": {
+        "resident_pop": 40506,
+        "stay_pop": 193552,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 10.95,
+        "spend_per_person": 119000
+      }
+    }
+  },
+  "47920": {
+    "adm_cd": "47920",
+    "sido_name": "경상북도",
+    "sigungu_name": "봉화군",
+    "full_name": "경상북도 봉화군",
+    "extinction_index": 0.0984,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 15425,
+    "unoccupied_housing": 2356,
+    "unoccupied_rate": 15.27,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 28107,
+        "stay_pop": 127941,
+        "stay_ratio": 4.5,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 106000
+      },
+      "202606": {
+        "resident_pop": 28122,
+        "stay_pop": 89823,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 129000
+      },
+      "avg": {
+        "resident_pop": 28114,
+        "stay_pop": 108882,
+        "stay_ratio": 3.8,
+        "avg_stay_hours": 12.3,
+        "spend_per_person": 117500
+      }
+    }
+  },
+  "47930": {
+    "adm_cd": "47930",
+    "sido_name": "경상북도",
+    "sigungu_name": "울진군",
+    "full_name": "경상북도 울진군",
+    "extinction_index": 0.2134,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 25126,
+    "unoccupied_housing": 5066,
+    "unoccupied_rate": 20.16,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 46096,
+        "stay_pop": 249245,
+        "stay_ratio": 5.3,
+        "avg_stay_hours": 13.5,
+        "spend_per_person": 122000
+      },
+      "202606": {
+        "resident_pop": 46195,
+        "stay_pop": 196889,
+        "stay_ratio": 4.2,
+        "avg_stay_hours": 13.9,
+        "spend_per_person": 130000
+      },
+      "avg": {
+        "resident_pop": 46146,
+        "stay_pop": 223067,
+        "stay_ratio": 4.75,
+        "avg_stay_hours": 13.7,
+        "spend_per_person": 126000
+      }
+    }
+  },
+  "47940": {
+    "adm_cd": "47940",
+    "sido_name": "경상북도",
+    "sigungu_name": "울릉군",
+    "full_name": "경상북도 울릉군",
+    "extinction_index": 0.2161,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 2983,
+    "unoccupied_housing": 136,
+    "unoccupied_rate": 4.56,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 8756,
+        "stay_pop": 56928,
+        "stay_ratio": 6.4,
+        "avg_stay_hours": 17.0,
+        "spend_per_person": 159000
+      },
+      "202606": {
+        "resident_pop": 8768,
+        "stay_pop": 39890,
+        "stay_ratio": 4.5,
+        "avg_stay_hours": 17.1,
+        "spend_per_person": 153000
+      },
+      "avg": {
+        "resident_pop": 8762,
+        "stay_pop": 48409,
+        "stay_ratio": 5.45,
+        "avg_stay_hours": 17.05,
+        "spend_per_person": 156000
+      }
+    }
+  },
+  "48270": {
+    "adm_cd": "48270",
+    "sido_name": "경상남도",
+    "sigungu_name": "밀양시",
+    "full_name": "경상남도 밀양시",
+    "extinction_index": 0.1953,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 50637,
+    "unoccupied_housing": 7304,
+    "unoccupied_rate": 14.42,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 98619,
+        "stay_pop": 494511,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 105000
+      },
+      "202606": {
+        "resident_pop": 98591,
+        "stay_pop": 361442,
+        "stay_ratio": 3.5,
+        "avg_stay_hours": 11.7,
+        "spend_per_person": 116000
+      },
+      "avg": {
+        "resident_pop": 98605,
+        "stay_pop": 427976,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 110500
+      }
+    }
+  },
+  "48720": {
+    "adm_cd": "48720",
+    "sido_name": "경상남도",
+    "sigungu_name": "의령군",
+    "full_name": "경상남도 의령군",
+    "extinction_index": 0.1182,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 13412,
+    "unoccupied_housing": 2264,
+    "unoccupied_rate": 16.88,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 24481,
+        "stay_pop": 145318,
+        "stay_ratio": 5.7,
+        "avg_stay_hours": 11.1,
+        "spend_per_person": 88000
+      },
+      "202606": {
+        "resident_pop": 24531,
+        "stay_pop": 107801,
+        "stay_ratio": 4.2,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 110000
+      },
+      "avg": {
+        "resident_pop": 24506,
+        "stay_pop": 126560,
+        "stay_ratio": 4.95,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 99000
+      }
+    }
+  },
+  "48730": {
+    "adm_cd": "48730",
+    "sido_name": "경상남도",
+    "sigungu_name": "함안군",
+    "full_name": "경상남도 함안군",
+    "extinction_index": 0.1991,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 27747,
+    "unoccupied_housing": 3251,
+    "unoccupied_rate": 11.72,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 56985,
+        "stay_pop": 329655,
+        "stay_ratio": 5.3,
+        "avg_stay_hours": 10.3,
+        "spend_per_person": 141000
+      },
+      "202606": {
+        "resident_pop": 56867,
+        "stay_pop": 239240,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 10.7,
+        "spend_per_person": 166000
+      },
+      "avg": {
+        "resident_pop": 56926,
+        "stay_pop": 284448,
+        "stay_ratio": 4.6,
+        "avg_stay_hours": 10.5,
+        "spend_per_person": 153500
+      }
+    }
+  },
+  "48740": {
+    "adm_cd": "48740",
+    "sido_name": "경상남도",
+    "sigungu_name": "창녕군",
+    "full_name": "경상남도 창녕군",
+    "extinction_index": 0.1434,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 28266,
+    "unoccupied_housing": 4351,
+    "unoccupied_rate": 15.39,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 54536,
+        "stay_pop": 288635,
+        "stay_ratio": 4.9,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 157000
+      },
+      "202606": {
+        "resident_pop": 54445,
+        "stay_pop": 216521,
+        "stay_ratio": 3.7,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 174000
+      },
+      "avg": {
+        "resident_pop": 54490,
+        "stay_pop": 252578,
+        "stay_ratio": 4.3,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 165500
+      }
+    }
+  },
+  "48820": {
+    "adm_cd": "48820",
+    "sido_name": "경상남도",
+    "sigungu_name": "고성군",
+    "full_name": "경상남도 고성군",
+    "extinction_index": 0.1422,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 24960,
+    "unoccupied_housing": 4909,
+    "unoccupied_rate": 19.67,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 46849,
+        "stay_pop": 247451,
+        "stay_ratio": 5.1,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 119000
+      },
+      "202606": {
+        "resident_pop": 46808,
+        "stay_pop": 200677,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 121000
+      },
+      "avg": {
+        "resident_pop": 46828,
+        "stay_pop": 224064,
+        "stay_ratio": 4.6,
+        "avg_stay_hours": 11.25,
+        "spend_per_person": 120000
+      }
+    }
+  },
+  "48840": {
+    "adm_cd": "48840",
+    "sido_name": "경상남도",
+    "sigungu_name": "남해군",
+    "full_name": "경상남도 남해군",
+    "extinction_index": 0.1099,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 23706,
+    "unoccupied_housing": 5749,
+    "unoccupied_rate": 24.25,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 41091,
+        "stay_pop": 348989,
+        "stay_ratio": 8.3,
+        "avg_stay_hours": 11.8,
+        "spend_per_person": 110000
+      },
+      "202606": {
+        "resident_pop": 41143,
+        "stay_pop": 243592,
+        "stay_ratio": 5.8,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 116000
+      },
+      "avg": {
+        "resident_pop": 41117,
+        "stay_pop": 296290,
+        "stay_ratio": 7.05,
+        "avg_stay_hours": 11.85,
+        "spend_per_person": 113000
+      }
+    }
+  },
+  "48850": {
+    "adm_cd": "48850",
+    "sido_name": "경상남도",
+    "sigungu_name": "하동군",
+    "full_name": "경상남도 하동군",
+    "extinction_index": 0.1195,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 20785,
+    "unoccupied_housing": 3175,
+    "unoccupied_rate": 15.28,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 39703,
+        "stay_pop": 224024,
+        "stay_ratio": 5.5,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 110000
+      },
+      "202606": {
+        "resident_pop": 39596,
+        "stay_pop": 157970,
+        "stay_ratio": 3.9,
+        "avg_stay_hours": 11.8,
+        "spend_per_person": 118000
+      },
+      "avg": {
+        "resident_pop": 39650,
+        "stay_pop": 190997,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 11.65,
+        "spend_per_person": 114000
+      }
+    }
+  },
+  "48860": {
+    "adm_cd": "48860",
+    "sido_name": "경상남도",
+    "sigungu_name": "산청군",
+    "full_name": "경상남도 산청군",
+    "extinction_index": 0.1145,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 17724,
+    "unoccupied_housing": 3241,
+    "unoccupied_rate": 18.29,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 32672,
+        "stay_pop": 255579,
+        "stay_ratio": 7.5,
+        "avg_stay_hours": 11.0,
+        "spend_per_person": 112000
+      },
+      "202606": {
+        "resident_pop": 32638,
+        "stay_pop": 179388,
+        "stay_ratio": 5.3,
+        "avg_stay_hours": 11.4,
+        "spend_per_person": 124000
+      },
+      "avg": {
+        "resident_pop": 32655,
+        "stay_pop": 217484,
+        "stay_ratio": 6.4,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 118000
+      }
+    }
+  },
+  "48870": {
+    "adm_cd": "48870",
+    "sido_name": "경상남도",
+    "sigungu_name": "함양군",
+    "full_name": "경상남도 함양군",
+    "extinction_index": 0.1415,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 19324,
+    "unoccupied_housing": 3620,
+    "unoccupied_rate": 18.73,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 35217,
+        "stay_pop": 169042,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 12.1,
+        "spend_per_person": 105000
+      },
+      "202606": {
+        "resident_pop": 35141,
+        "stay_pop": 132391,
+        "stay_ratio": 3.7,
+        "avg_stay_hours": 12.3,
+        "spend_per_person": 111000
+      },
+      "avg": {
+        "resident_pop": 35179,
+        "stay_pop": 150716,
+        "stay_ratio": 4.2,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 108000
+      }
+    }
+  },
+  "48880": {
+    "adm_cd": "48880",
+    "sido_name": "경상남도",
+    "sigungu_name": "거창군",
+    "full_name": "경상남도 거창군",
+    "extinction_index": 0.2201,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 28424,
+    "unoccupied_housing": 4397,
+    "unoccupied_rate": 15.47,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 58874,
+        "stay_pop": 199123,
+        "stay_ratio": 3.3,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 113000
+      },
+      "202606": {
+        "resident_pop": 58846,
+        "stay_pop": 141567,
+        "stay_ratio": 2.4,
+        "avg_stay_hours": 12.9,
+        "spend_per_person": 122000
+      },
+      "avg": {
+        "resident_pop": 58860,
+        "stay_pop": 170345,
+        "stay_ratio": 2.85,
+        "avg_stay_hours": 12.65,
+        "spend_per_person": 117500
+      }
+    }
+  },
+  "48890": {
+    "adm_cd": "48890",
+    "sido_name": "경상남도",
+    "sigungu_name": "합천군",
+    "full_name": "경상남도 합천군",
+    "extinction_index": 0.1014,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 23318,
+    "unoccupied_housing": 4952,
+    "unoccupied_rate": 21.24,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 38917,
+        "stay_pop": 358036,
+        "stay_ratio": 8.9,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 85000
+      },
+      "202606": {
+        "resident_pop": 38854,
+        "stay_pop": 175022,
+        "stay_ratio": 4.4,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 105000
+      },
+      "avg": {
+        "resident_pop": 38886,
+        "stay_pop": 266529,
+        "stay_ratio": 6.65,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 95000
+      }
+    }
+  },
+  "51190": {
+    "adm_cd": "51190",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "태백시",
+    "full_name": "강원특별자치도 태백시",
+    "extinction_index": 0.2147,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 21850,
+    "unoccupied_housing": 4443,
+    "unoccupied_rate": 20.33,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 36853,
+        "stay_pop": 116630,
+        "stay_ratio": 3.1,
+        "avg_stay_hours": 13.4,
+        "spend_per_person": 151000
+      },
+      "202606": {
+        "resident_pop": 36811,
+        "stay_pop": 101655,
+        "stay_ratio": 2.7,
+        "avg_stay_hours": 13.8,
+        "spend_per_person": 155000
+      },
+      "avg": {
+        "resident_pop": 36832,
+        "stay_pop": 109142,
+        "stay_ratio": 2.9,
+        "avg_stay_hours": 13.6,
+        "spend_per_person": 153000
+      }
+    }
+  },
+  "51230": {
+    "adm_cd": "51230",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "삼척시",
+    "full_name": "강원특별자치도 삼척시",
+    "extinction_index": 0.2734,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 32038,
+    "unoccupied_housing": 5629,
+    "unoccupied_rate": 17.57,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 60408,
+        "stay_pop": 376346,
+        "stay_ratio": 6.1,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 113000
+      },
+      "202606": {
+        "resident_pop": 60294,
+        "stay_pop": 289263,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 12.7,
+        "spend_per_person": 121000
+      },
+      "avg": {
+        "resident_pop": 60351,
+        "stay_pop": 332804,
+        "stay_ratio": 5.4,
+        "avg_stay_hours": 12.55,
+        "spend_per_person": 117000
+      }
+    }
+  },
+  "51720": {
+    "adm_cd": "51720",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "홍천군",
+    "full_name": "강원특별자치도 홍천군",
+    "extinction_index": 0.2179,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 32648,
+    "unoccupied_housing": 4935,
+    "unoccupied_rate": 15.12,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 65889,
+        "stay_pop": 583608,
+        "stay_ratio": 8.6,
+        "avg_stay_hours": 13.1,
+        "spend_per_person": 132000
+      },
+      "202606": {
+        "resident_pop": 65849,
+        "stay_pop": 507315,
+        "stay_ratio": 7.4,
+        "avg_stay_hours": 13.1,
+        "spend_per_person": 136000
+      },
+      "avg": {
+        "resident_pop": 65869,
+        "stay_pop": 545462,
+        "stay_ratio": 8.0,
+        "avg_stay_hours": 13.1,
+        "spend_per_person": 134000
+      }
+    }
+  },
+  "51730": {
+    "adm_cd": "51730",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "횡성군",
+    "full_name": "강원특별자치도 횡성군",
+    "extinction_index": 0.1669,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 22286,
+    "unoccupied_housing": 3230,
+    "unoccupied_rate": 14.49,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 45596,
+        "stay_pop": 359206,
+        "stay_ratio": 7.5,
+        "avg_stay_hours": 11.8,
+        "spend_per_person": 148000
+      },
+      "202606": {
+        "resident_pop": 45575,
+        "stay_pop": 296822,
+        "stay_ratio": 6.1,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 144000
+      },
+      "avg": {
+        "resident_pop": 45586,
+        "stay_pop": 328014,
+        "stay_ratio": 6.8,
+        "avg_stay_hours": 11.7,
+        "spend_per_person": 146000
+      }
+    }
+  },
+  "51750": {
+    "adm_cd": "51750",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "영월군",
+    "full_name": "강원특별자치도 영월군",
+    "extinction_index": 0.1758,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 18622,
+    "unoccupied_housing": 2443,
+    "unoccupied_rate": 13.12,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 35757,
+        "stay_pop": 333611,
+        "stay_ratio": 9.2,
+        "avg_stay_hours": 12.0,
+        "spend_per_person": 97000
+      },
+      "202606": {
+        "resident_pop": 35714,
+        "stay_pop": 243120,
+        "stay_ratio": 6.7,
+        "avg_stay_hours": 12.1,
+        "spend_per_person": 106000
+      },
+      "avg": {
+        "resident_pop": 35736,
+        "stay_pop": 288366,
+        "stay_ratio": 7.95,
+        "avg_stay_hours": 12.05,
+        "spend_per_person": 101500
+      }
+    }
+  },
+  "51760": {
+    "adm_cd": "51760",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "평창군",
+    "full_name": "강원특별자치도 평창군",
+    "extinction_index": 0.1717,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 23549,
+    "unoccupied_housing": 6350,
+    "unoccupied_rate": 26.97,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 39917,
+        "stay_pop": 473893,
+        "stay_ratio": 11.4,
+        "avg_stay_hours": 13.1,
+        "spend_per_person": 132000
+      },
+      "202606": {
+        "resident_pop": 39897,
+        "stay_pop": 428370,
+        "stay_ratio": 10.2,
+        "avg_stay_hours": 13.2,
+        "spend_per_person": 125000
+      },
+      "avg": {
+        "resident_pop": 39907,
+        "stay_pop": 451132,
+        "stay_ratio": 10.8,
+        "avg_stay_hours": 13.15,
+        "spend_per_person": 128500
+      }
+    }
+  },
+  "51770": {
+    "adm_cd": "51770",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "정선군",
+    "full_name": "강원특별자치도 정선군",
+    "extinction_index": 0.1668,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 17651,
+    "unoccupied_housing": 2632,
+    "unoccupied_rate": 14.91,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 35113,
+        "stay_pop": 294010,
+        "stay_ratio": 8.2,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 98000
+      },
+      "202606": {
+        "resident_pop": 35128,
+        "stay_pop": 268713,
+        "stay_ratio": 7.4,
+        "avg_stay_hours": 12.5,
+        "spend_per_person": 99000
+      },
+      "avg": {
+        "resident_pop": 35120,
+        "stay_pop": 281362,
+        "stay_ratio": 7.8,
+        "avg_stay_hours": 12.55,
+        "spend_per_person": 98500
+      }
+    }
+  },
+  "51780": {
+    "adm_cd": "51780",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "철원군",
+    "full_name": "강원특별자치도 철원군",
+    "extinction_index": 0.3052,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 17386,
+    "unoccupied_housing": 1717,
+    "unoccupied_rate": 9.88,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 39727,
+        "stay_pop": 207751,
+        "stay_ratio": 5.0,
+        "avg_stay_hours": 14.6,
+        "spend_per_person": 108000
+      },
+      "202606": {
+        "resident_pop": 39711,
+        "stay_pop": 171452,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 14.9,
+        "spend_per_person": 112000
+      },
+      "avg": {
+        "resident_pop": 39719,
+        "stay_pop": 189602,
+        "stay_ratio": 4.55,
+        "avg_stay_hours": 14.75,
+        "spend_per_person": 110000
+      }
+    }
+  },
+  "51790": {
+    "adm_cd": "51790",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "화천군",
+    "full_name": "강원특별자치도 화천군",
+    "extinction_index": 0.318,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 10102,
+    "unoccupied_housing": 934,
+    "unoccupied_rate": 9.25,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 22328,
+        "stay_pop": 115269,
+        "stay_ratio": 5.1,
+        "avg_stay_hours": 14.5,
+        "spend_per_person": 93000
+      },
+      "202606": {
+        "resident_pop": 22579,
+        "stay_pop": 99102,
+        "stay_ratio": 4.3,
+        "avg_stay_hours": 14.5,
+        "spend_per_person": 94000
+      },
+      "avg": {
+        "resident_pop": 22454,
+        "stay_pop": 107186,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 14.5,
+        "spend_per_person": 93500
+      }
+    }
+  },
+  "51800": {
+    "adm_cd": "51800",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "양구군",
+    "full_name": "강원특별자치도 양구군",
+    "extinction_index": 0.3415,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 8457,
+    "unoccupied_housing": 553,
+    "unoccupied_rate": 6.54,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 20358,
+        "stay_pop": 97056,
+        "stay_ratio": 4.7,
+        "avg_stay_hours": 15.4,
+        "spend_per_person": 103000
+      },
+      "202606": {
+        "resident_pop": 20372,
+        "stay_pop": 75668,
+        "stay_ratio": 3.6,
+        "avg_stay_hours": 15.5,
+        "spend_per_person": 111000
+      },
+      "avg": {
+        "resident_pop": 20365,
+        "stay_pop": 86362,
+        "stay_ratio": 4.15,
+        "avg_stay_hours": 15.45,
+        "spend_per_person": 107000
+      }
+    }
+  },
+  "51820": {
+    "adm_cd": "51820",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "고성군",
+    "full_name": "강원특별자치도 고성군",
+    "extinction_index": 0.2214,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 13573,
+    "unoccupied_housing": 2459,
+    "unoccupied_rate": 18.12,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 27189,
+        "stay_pop": 440063,
+        "stay_ratio": 14.9,
+        "avg_stay_hours": 12.7,
+        "spend_per_person": 100000
+      },
+      "202606": {
+        "resident_pop": 27204,
+        "stay_pop": 424516,
+        "stay_ratio": 14.4,
+        "avg_stay_hours": 12.6,
+        "spend_per_person": 98000
+      },
+      "avg": {
+        "resident_pop": 27196,
+        "stay_pop": 432290,
+        "stay_ratio": 14.65,
+        "avg_stay_hours": 12.65,
+        "spend_per_person": 99000
+      }
+    }
+  },
+  "51830": {
+    "adm_cd": "51830",
+    "sido_name": "강원특별자치도",
+    "sigungu_name": "양양군",
+    "full_name": "강원특별자치도 양양군",
+    "extinction_index": 0.1808,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 14990,
+    "unoccupied_housing": 3405,
+    "unoccupied_rate": 22.72,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 27417,
+        "stay_pop": 492194,
+        "stay_ratio": 17.6,
+        "avg_stay_hours": 11.9,
+        "spend_per_person": 102000
+      },
+      "202606": {
+        "resident_pop": 27326,
+        "stay_pop": 405309,
+        "stay_ratio": 14.5,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 104000
+      },
+      "avg": {
+        "resident_pop": 27372,
+        "stay_pop": 448752,
+        "stay_ratio": 16.05,
+        "avg_stay_hours": 12.05,
+        "spend_per_person": 103000
+      }
+    }
+  },
+  "52180": {
+    "adm_cd": "52180",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "정읍시",
+    "full_name": "전북특별자치도 정읍시",
+    "extinction_index": 0.2368,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 48554,
+    "unoccupied_housing": 6739,
+    "unoccupied_rate": 13.88,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 100683,
+        "stay_pop": 287445,
+        "stay_ratio": 2.8,
+        "avg_stay_hours": 12.3,
+        "spend_per_person": 153000
+      },
+      "202606": {
+        "resident_pop": 100738,
+        "stay_pop": 228801,
+        "stay_ratio": 2.2,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 167000
+      },
+      "avg": {
+        "resident_pop": 100710,
+        "stay_pop": 258123,
+        "stay_ratio": 2.5,
+        "avg_stay_hours": 12.35,
+        "spend_per_person": 160000
+      }
+    }
+  },
+  "52190": {
+    "adm_cd": "52190",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "남원시",
+    "full_name": "전북특별자치도 남원시",
+    "extinction_index": 0.2215,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 36276,
+    "unoccupied_housing": 4886,
+    "unoccupied_rate": 13.47,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 73937,
+        "stay_pop": 408501,
+        "stay_ratio": 5.4,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 117000
+      },
+      "202606": {
+        "resident_pop": 73812,
+        "stay_pop": 228720,
+        "stay_ratio": 3.0,
+        "avg_stay_hours": 12.5,
+        "spend_per_person": 143000
+      },
+      "avg": {
+        "resident_pop": 73874,
+        "stay_pop": 318610,
+        "stay_ratio": 4.2,
+        "avg_stay_hours": 12.05,
+        "spend_per_person": 130000
+      }
+    }
+  },
+  "52210": {
+    "adm_cd": "52210",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "김제시",
+    "full_name": "전북특별자치도 김제시",
+    "extinction_index": 0.2109,
+    "extinction_class": "소멸위험지역",
+    "total_housing": 40007,
+    "unoccupied_housing": 5885,
+    "unoccupied_rate": 14.71,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 81665,
+        "stay_pop": 285247,
+        "stay_ratio": 3.3,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 165000
+      },
+      "202606": {
+        "resident_pop": 81631,
+        "stay_pop": 239656,
+        "stay_ratio": 2.8,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 176000
+      },
+      "avg": {
+        "resident_pop": 81648,
+        "stay_pop": 262452,
+        "stay_ratio": 3.05,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 170500
+      }
+    }
+  },
+  "52720": {
+    "adm_cd": "52720",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "진안군",
+    "full_name": "전북특별자치도 진안군",
+    "extinction_index": 0.1466,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 11113,
+    "unoccupied_housing": 1102,
+    "unoccupied_rate": 9.92,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 24414,
+        "stay_pop": 179066,
+        "stay_ratio": 7.1,
+        "avg_stay_hours": 10.6,
+        "spend_per_person": 77000
+      },
+      "202606": {
+        "resident_pop": 24689,
+        "stay_pop": 132744,
+        "stay_ratio": 5.1,
+        "avg_stay_hours": 10.9,
+        "spend_per_person": 82000
+      },
+      "avg": {
+        "resident_pop": 24552,
+        "stay_pop": 155905,
+        "stay_ratio": 6.1,
+        "avg_stay_hours": 10.75,
+        "spend_per_person": 79500
+      }
+    }
+  },
+  "52730": {
+    "adm_cd": "52730",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "무주군",
+    "full_name": "전북특별자치도 무주군",
+    "extinction_index": 0.1515,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 11344,
+    "unoccupied_housing": 1512,
+    "unoccupied_rate": 13.33,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 23202,
+        "stay_pop": 175606,
+        "stay_ratio": 7.4,
+        "avg_stay_hours": 12.2,
+        "spend_per_person": 99000
+      },
+      "202606": {
+        "resident_pop": 23326,
+        "stay_pop": 166050,
+        "stay_ratio": 6.8,
+        "avg_stay_hours": 12.4,
+        "spend_per_person": 95000
+      },
+      "avg": {
+        "resident_pop": 23264,
+        "stay_pop": 170828,
+        "stay_ratio": 7.1,
+        "avg_stay_hours": 12.3,
+        "spend_per_person": 97000
+      }
+    }
+  },
+  "52740": {
+    "adm_cd": "52740",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "장수군",
+    "full_name": "전북특별자치도 장수군",
+    "extinction_index": 0.1406,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 9771,
+    "unoccupied_housing": 1078,
+    "unoccupied_rate": 11.03,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 21144,
+        "stay_pop": 88505,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 12.0,
+        "spend_per_person": 106000
+      },
+      "202606": {
+        "resident_pop": 21169,
+        "stay_pop": 69725,
+        "stay_ratio": 3.2,
+        "avg_stay_hours": 12.1,
+        "spend_per_person": 107000
+      },
+      "avg": {
+        "resident_pop": 21156,
+        "stay_pop": 79115,
+        "stay_ratio": 3.65,
+        "avg_stay_hours": 12.05,
+        "spend_per_person": 106500
+      }
+    }
+  },
+  "52750": {
+    "adm_cd": "52750",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "임실군",
+    "full_name": "전북특별자치도 임실군",
+    "extinction_index": 0.1391,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 12768,
+    "unoccupied_housing": 2180,
+    "unoccupied_rate": 17.07,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 25347,
+        "stay_pop": 296711,
+        "stay_ratio": 11.4,
+        "avg_stay_hours": 9.8,
+        "spend_per_person": 80000
+      },
+      "202606": {
+        "resident_pop": 25342,
+        "stay_pop": 165338,
+        "stay_ratio": 6.4,
+        "avg_stay_hours": 10.6,
+        "spend_per_person": 107000
+      },
+      "avg": {
+        "resident_pop": 25344,
+        "stay_pop": 231024,
+        "stay_ratio": 8.9,
+        "avg_stay_hours": 10.2,
+        "spend_per_person": 93500
+      }
+    }
+  },
+  "52770": {
+    "adm_cd": "52770",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "순창군",
+    "full_name": "전북특별자치도 순창군",
+    "extinction_index": 0.1724,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 13201,
+    "unoccupied_housing": 2016,
+    "unoccupied_rate": 15.27,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 27611,
+        "stay_pop": 140756,
+        "stay_ratio": 5.0,
+        "avg_stay_hours": 10.7,
+        "spend_per_person": 77000
+      },
+      "202606": {
+        "resident_pop": 27584,
+        "stay_pop": 116788,
+        "stay_ratio": 4.1,
+        "avg_stay_hours": 10.8,
+        "spend_per_person": 83000
+      },
+      "avg": {
+        "resident_pop": 27598,
+        "stay_pop": 128772,
+        "stay_ratio": 4.55,
+        "avg_stay_hours": 10.75,
+        "spend_per_person": 80000
+      }
+    }
+  },
+  "52790": {
+    "adm_cd": "52790",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "고창군",
+    "full_name": "전북특별자치도 고창군",
+    "extinction_index": 0.1491,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 26045,
+    "unoccupied_housing": 4029,
+    "unoccupied_rate": 15.47,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 50148,
+        "stay_pop": 365628,
+        "stay_ratio": 7.0,
+        "avg_stay_hours": 11.2,
+        "spend_per_person": 110000
+      },
+      "202606": {
+        "resident_pop": 50071,
+        "stay_pop": 239621,
+        "stay_ratio": 4.5,
+        "avg_stay_hours": 11.8,
+        "spend_per_person": 128000
+      },
+      "avg": {
+        "resident_pop": 50110,
+        "stay_pop": 302624,
+        "stay_ratio": 5.75,
+        "avg_stay_hours": 11.5,
+        "spend_per_person": 119000
+      }
+    }
+  },
+  "52800": {
+    "adm_cd": "52800",
+    "sido_name": "전북특별자치도",
+    "sigungu_name": "부안군",
+    "full_name": "전북특별자치도 부안군",
+    "extinction_index": 0.1569,
+    "extinction_class": "소멸고위험지역",
+    "total_housing": 24399,
+    "unoccupied_housing": 4088,
+    "unoccupied_rate": 16.75,
+    "living_pop": {
+      "202605": {
+        "resident_pop": 47009,
+        "stay_pop": 397706,
+        "stay_ratio": 8.2,
+        "avg_stay_hours": 11.3,
+        "spend_per_person": 97000
+      },
+      "202606": {
+        "resident_pop": 46946,
+        "stay_pop": 281168,
+        "stay_ratio": 5.8,
+        "avg_stay_hours": 11.6,
+        "spend_per_person": 101000
+      },
+      "avg": {
+        "resident_pop": 46978,
+        "stay_pop": 339437,
+        "stay_ratio": 7.0,
+        "avg_stay_hours": 11.45,
+        "spend_per_person": 99000
+      }
+    }
+  }
+}
